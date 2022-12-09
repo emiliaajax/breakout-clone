@@ -1,15 +1,18 @@
 before_script:
   - export GRADLE_USER_HOME=`pwd`/.gradle
 
-# image: gradle:7.6.0-jdk19-alpine
-image: gradle:7.6.0-jdk8
+image: gradle:7.6.0-jdk19-alpine
 
 stages:
   - test
 
+  DISPLAY=:0
+
 test:
   stage: test
-  script: ./gradlew test
+  script:
+   - export DISPLAY=:0
+   - ./gradlew test
   artifacts:
     reports:
       junit:
