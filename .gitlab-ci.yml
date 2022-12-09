@@ -1,7 +1,8 @@
 before_script:
   - export GRADLE_USER_HOME=`pwd`/.gradle
 
-image: gradle:7.6.0-jdk19-alpine
+# image: gradle:7.6.0-jdk19-alpine
+image: gradle:7.6.0-jdk19
 
 stages:
   - test
