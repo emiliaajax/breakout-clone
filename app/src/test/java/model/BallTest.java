@@ -15,4 +15,12 @@ public class BallTest {
     
     assertEquals(expected, actual);
   }
+
+  @Test void shouldReturnBallHeightOfTen() {
+    Ball sut = new Ball();
+    int expected = 10;
+    int actual = sut.getHeight();
+    
+    assertEquals(expected, actual);
+  }
 }
