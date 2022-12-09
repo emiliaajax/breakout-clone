@@ -1,19 +1,19 @@
-before_script:
-  - export GRADLE_USER_HOME=`pwd`/.gradle
+# before_script:
+#   - export GRADLE_USER_HOME=`pwd`/.gradle
 
-image: gradle:7.6.0-jdk19-alpine
+# image: gradle:7.6.0-jdk19-alpine
 
-stages:
-  - test
+# stages:
+#   - test
 
-test:
-  stage: test
-  script:
-    - apk add xvfb
-    - export DISPLAY=:99.0
-    - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-    - ./gradlew test
-  artifacts:
-    reports:
-      junit:
-        - app/build/test-results/test/TEST-*.xml
+# test:
+#   stage: test
+#   script:
+#     - apk add xvfb
+#     - export DISPLAY=:99.0
+#     - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+#     - ./gradlew test
+#   artifacts:
+#     reports:
+#       junit:
+#         - app/build/test-results/test/TEST-*.xml
