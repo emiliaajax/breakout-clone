@@ -49,9 +49,9 @@ public class GameUITest {
     assertDoesNotThrow(() -> new GameUI(new JFrameStub()));
   }
 
-  @Test void shouldReturnSixHundredForWidthOfFrame () {
+  @Test void shouldReturnEightHundredForWidthOfFrame () {
     GameUI sut = new GameUI(new JFrameStub());
-    final int expected = 600;
+    final int expected = 800;
     final int actual = sut.getFrame().getWidth();
 
     assertEquals(expected, actual);
