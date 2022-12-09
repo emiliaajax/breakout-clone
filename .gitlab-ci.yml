@@ -1,7 +1,7 @@
 before_script:
   - export GRADLE_USER_HOME=`pwd`/.gradle
 
-image: jenkins/jnlp-slave:latest
+image: gradle:7.6.0-jdk19-alpine
 
 stages:
   - test
@@ -9,7 +9,9 @@ stages:
 test:
   stage: test
   script:
-    - export DISPLAY=:0
+    - apk add xvfb
+    - export DISPLAY=:99.0
+    - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
     - ./gradlew test
   artifacts:
     reports:
