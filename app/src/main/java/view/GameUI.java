@@ -11,7 +11,7 @@ public class GameUI {
   }
 
   private void initUI() {
-    frame.setBounds(30, 30, 600, 600);
+    frame.setBounds(30, 30, 800, 600);
     frame.setTitle("Breakout");
     frame.setResizable(false);
     frame.setVisible(true);
