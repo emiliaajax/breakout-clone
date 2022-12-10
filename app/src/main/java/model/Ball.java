@@ -25,11 +25,11 @@ public class Ball {
     return height;
   }
 
-  public int getHorizontalDirection() {
+  public int getXDirection() {
     return xDir;
   }
 
-  public int getVerticalDirection() {
+  public int getYDirection() {
     return yDir;
   }
 

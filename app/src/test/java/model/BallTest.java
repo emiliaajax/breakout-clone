@@ -27,7 +27,7 @@ public class BallTest {
   @Test void shouldReturnOneForBallHorizontalDirection() {
     Ball sut = new Ball();
     int expected = 1;
-    int actual = sut.getHorizontalDirection();
+    int actual = sut.getXDirection();
     
     assertEquals(expected, actual);
   }
@@ -35,7 +35,7 @@ public class BallTest {
   @Test void shouldReturnMinusOneForBallVerticalDirection() {
     Ball sut = new Ball();
     int expected = -1;
-    int actual = sut.getVerticalDirection();
+    int actual = sut.getYDirection();
     
     assertEquals(expected, actual);
   }
