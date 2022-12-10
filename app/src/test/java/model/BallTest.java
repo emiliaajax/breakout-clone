@@ -63,4 +63,12 @@ public class BallTest {
     int[] actual = {sut.getXPos(), sut.getYPos()};
     assertArrayEquals(expected, actual);
   }
+
+  @Test void xDirectionShouldBeMinusOneWhenDirectionIsChanged() {
+    Ball sut = new Ball();
+    sut.changeXDir();
+    int expected = -1;
+    int actual = sut.getXPos();
+    assertEquals(expected, actual);
+  }
 }
