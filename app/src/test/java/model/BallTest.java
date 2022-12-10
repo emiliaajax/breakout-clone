@@ -47,4 +47,12 @@ public class BallTest {
     
     assertEquals(expected, actual);
   }
+
+  @Test void shouldReturnFiftyForBallYPosition() {
+    Ball sut = new Ball();
+    int expected = 50;
+    int actual = sut.getYPos();
+    
+    assertEquals(expected, actual);
+  }
 }
