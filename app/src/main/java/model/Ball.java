@@ -40,4 +40,9 @@ public class Ball {
   public int getYPos() {
     return y;
   }
+
+  public void move () {
+    x += xDir;
+    y += yDir;
+  }
 }
