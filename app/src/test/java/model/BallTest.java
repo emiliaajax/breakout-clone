@@ -31,4 +31,12 @@ public class BallTest {
     
     assertEquals(expected, actual);
   }
+
+  @Test void shouldReturnMinusOneForBallVerticalDirection() {
+    Ball sut = new Ball();
+    int expected = -1;
+    int actual = sut.getVerticalDirection();
+    
+    assertEquals(expected, actual);
+  }
 }
