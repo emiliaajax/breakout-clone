@@ -68,7 +68,7 @@ public class BallTest {
     Ball sut = new Ball();
     sut.changeXDir();
     int expected = -1;
-    int actual = sut.getXPos();
+    int actual = sut.getXDirection();
     assertEquals(expected, actual);
   }
 }
