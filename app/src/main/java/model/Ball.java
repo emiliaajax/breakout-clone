@@ -4,11 +4,13 @@ public class Ball {
   private int x;
   private int y;
   private int xDir;
+  private int yDir;
 
   public Ball () {
     x = 10;
     y = 10;
     xDir = 1;
+    yDir = -1;
   }
 
   public int getWidth() {
@@ -21,5 +23,9 @@ public class Ball {
 
   public int getHorizontalDirection() {
     return xDir;
+  }
+
+  public int getVerticalDirection() {
+    return yDir;
   }
 }
