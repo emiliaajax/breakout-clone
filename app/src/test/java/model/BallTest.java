@@ -23,4 +23,12 @@ public class BallTest {
     
     assertEquals(expected, actual);
   }
+
+  @Test void shouldReturnOneForBallHorizontalDirection() {
+    Ball sut = new Ball();
+    int expected = 1;
+    int actual = sut.getHorizontalDirection();
+    
+    assertEquals(expected, actual);
+  }
 }
