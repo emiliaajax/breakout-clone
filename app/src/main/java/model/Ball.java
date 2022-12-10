@@ -1,24 +1,24 @@
 package model;
 
 public class Ball {
-  private int x;
-  private int y;
+  private int width;
+  private int height;
   private int xDir;
   private int yDir;
 
   public Ball () {
-    x = 10;
-    y = 10;
+    width = 10;
+    height = 10;
     xDir = 1;
     yDir = -1;
   }
 
   public int getWidth() {
-    return x;
+    return width;
   }
 
   public int getHeight() {
-    return y;
+    return height;
   }
 
   public int getHorizontalDirection() {
