@@ -45,4 +45,8 @@ public class Ball {
     x += xDir;
     y += yDir;
   }
+
+  public void changeXDir() {
+    xDir = xDir * -1;
+  }
 }
