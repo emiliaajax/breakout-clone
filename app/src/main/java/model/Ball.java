@@ -6,6 +6,7 @@ public class Ball {
   private int xDir;
   private int yDir;
   private int x;
+  private int y;
 
   public Ball () {
     width = 10;
@@ -13,6 +14,7 @@ public class Ball {
     xDir = 1;
     yDir = -1;
     x = 50;
+    y = 50;
   }
 
   public int getWidth() {
@@ -33,5 +35,9 @@ public class Ball {
 
   public int getXPos() {
     return x;
+  }
+
+  public int getYPos() {
+    return y;
   }
 }
