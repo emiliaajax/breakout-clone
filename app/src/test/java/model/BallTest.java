@@ -55,4 +55,12 @@ public class BallTest {
     
     assertEquals(expected, actual);
   }
+
+  @Test void ballShouldMoveWhenFunctionIsCalled() {
+    Ball sut = new Ball();
+    sut.move();
+    int[] expected = {51, 49};
+    int[] actual = {sut.getXPos(), sut.getYPos()};
+    assertArrayEquals(expected, actual);
+  }
 }
