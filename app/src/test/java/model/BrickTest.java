@@ -24,10 +24,18 @@ public class BrickTest {
     assertEquals(expected, actual);
   }
 
-  @Test void shouldReturnInitialXPosOfZero() {
+  @Test void shouldReturnZeroAsInitialXPos() {
     Brick sut = new Brick();
     int expected = 0;
     int actual = sut.getXPos();
+    
+    assertEquals(expected, actual);
+  }
+
+  @Test void shouldReturnZeroAsInitialYPos() {
+    Brick sut = new Brick();
+    int expected = 0;
+    int actual = sut.getYPos();
     
     assertEquals(expected, actual);
   }
