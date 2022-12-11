@@ -15,4 +15,12 @@ public class BrickTest {
     
     assertEquals(expected, actual);
   }
+
+  @Test void shouldReturnBrickHeightOfTwenty() {
+    Brick sut = new Brick();
+    int expected = 20;
+    int actual = sut.getHeight();
+    
+    assertEquals(expected, actual);
+  }
 }
