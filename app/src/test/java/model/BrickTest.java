@@ -43,7 +43,8 @@ public class BrickTest {
   @Test void shouldReturnHundredAsNewXPosWhenInputIsHundred() {
     Brick sut = new Brick();
     int expected = 100;
-    int actual = sut.setXPos(100);
+    sut.setXPos(100);
+    int actual = sut.getXPos();
     
     assertEquals(expected, actual);
   }

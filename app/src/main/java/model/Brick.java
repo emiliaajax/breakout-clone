@@ -28,4 +28,8 @@ public class Brick {
 	public int getYPos() {
 		return yPos;
 	}
+
+	public void setXPos(int newXPos) {
+		xPos = newXPos;
+	}
 }
