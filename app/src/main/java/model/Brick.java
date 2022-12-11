@@ -4,11 +4,13 @@ public class Brick {
 	private int width;
 	private int height;
 	private int xPos;
+	private int yPos;
 
 	public Brick () {
 		width = 30;
 		height = 20;
 		xPos = 0;
+		yPos = 0;
 	}
 
 	public int getWidth() {
@@ -21,5 +23,9 @@ public class Brick {
 
 	public int getXPos() {
 		return xPos;
+	}
+
+	public int getYPos() {
+		return yPos;
 	}
 }
