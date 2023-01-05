@@ -128,4 +128,19 @@ public class PaddleTest {
 
     assertEquals(expected, actual);
   }
+
+  @Test void paddleShouldStopMovingWhenHittingTheLeftWall() {
+    KeyEvent mockEvent = mock(KeyEvent.class);
+    when(mockEvent.getKeyCode()).thenReturn(KeyEvent.VK_LEFT);
+
+    for (int i = 0; i < 500; i++) {
+      sut.onKeyPress(mockEvent);
+      sut.move();
+    }
+
+    int expected = 0;
+    int actual = sut.getXPos();
+
+    assertEquals(expected, actual);
+  }
 }
