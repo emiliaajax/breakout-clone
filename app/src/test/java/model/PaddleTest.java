@@ -77,4 +77,13 @@ public class PaddleTest {
 
     assertEquals(expected, actual);
   }
+
+  @Test void paddlePositionShouldNotChangeWhenKeyIsNotPressed() {
+    sut.move();
+
+    int expected = 325;
+    int actual = sut.getXPos();
+
+    assertEquals(expected, actual);
+  }
 }
