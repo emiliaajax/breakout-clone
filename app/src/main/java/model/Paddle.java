@@ -40,7 +40,7 @@ public class Paddle {
   }
 
   public void move() {
-    if (isRightWall()) {
+    if (isRightWall() || xPos <= 0) {
       stopMoving();
     } else {
       movePaddle();
