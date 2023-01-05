@@ -44,6 +44,10 @@ public class Ball {
   public void move () {
     x += xDir;
     y += yDir;
+
+    if (y == 0) {
+      changeYDir();
+    }
   }
 
   public void changeXDir() {
