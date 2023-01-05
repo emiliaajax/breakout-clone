@@ -56,7 +56,7 @@ public class BrickTest {
     assertEquals(expected, actual);
   }
 
-  @Test void brickShouldBeDestroyedWhenDestroyedIsSetToTrue () {
+  @Test void destroyedShouldBeSetToTrueWhenDestroyMethodIsCalled () {
     Brick sut = new Brick();
     boolean expected = true;
     sut.destroy();
