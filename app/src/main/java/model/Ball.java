@@ -1,5 +1,7 @@
 package model;
 
+import utils.FrameCommons;
+
 public class Ball {
   private int width;
   private int height;
@@ -45,11 +47,11 @@ public class Ball {
     x += xDir;
     y += yDir;
 
-    if (y == 0) {
+    if (y == 0) { 
       changeYDir();
     }
 
-    if (x == 800 - width) {
+    if (x == FrameCommons.WIDTH - width) {
       changeXDir();
     }
   }
