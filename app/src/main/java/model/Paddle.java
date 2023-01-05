@@ -38,11 +38,12 @@ public class Paddle {
   }
 
   public void onKeyPress(KeyEvent event) {
-
-    int key = event.getKeyCode();
-
-    if (key == KeyEvent.VK_LEFT) {
-      xDir = -1;
+    if (event.getKeyCode() == KeyEvent.VK_LEFT) {
+      moveLeft();
     }
+  }
+
+  private void moveLeft() {
+    xDir = -1;
   }
 }
