@@ -68,9 +68,17 @@ public class Ball {
     yDir = yDir * -1;
   }
 
-  public void resetBall() {
+  public void reset() {
+    resetPosition();
+    resetDirection();
+  }
+
+  private void resetPosition() {
     x = 50;
     y = 50;
+  }
+
+  private void resetDirection() {
     xDir = 1;
     yDir = -1;
   }

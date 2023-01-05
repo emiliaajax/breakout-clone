@@ -112,7 +112,7 @@ public class BallTest {
 
   @Test void ballShouldResetToInitialWhenMethodCalled() {
     Ball sut = new Ball();
-    sut.resetBall();
+    sut.reset();
     int[] expected = {50, 50, 1, -1};
     int[] actual = {sut.getXPos(), sut.getYPos(), sut.getXDirection(), sut.getYDirection()};
     assertArrayEquals(expected, actual);
