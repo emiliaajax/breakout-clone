@@ -64,6 +64,22 @@ public class BallTest {
     assertArrayEquals(expected, actual);
   }
 
+  @Test void xDirectionShouldBeMinusOneWhenDirectionIsChanged() {
+    Ball sut = new Ball();
+    sut.changeXDir();
+    int expected = -1;
+    int actual = sut.getXDirection();
+    assertEquals(expected, actual);
+  }
+
+  @Test void yDirectionShouldBeOneWhenDirectionIsChanged() {
+    Ball sut = new Ball();
+    sut.changeYDir();
+    int expected = 1;
+    int actual = sut.getYDirection();
+    assertEquals(expected, actual);
+  }
+
   @Test void ballShouldChangeDirectionWhenHittingTheCeiling() {
     Ball sut = new Ball();
     for (int i = 0; i < 60; i++) {
@@ -84,19 +100,13 @@ public class BallTest {
     assertEquals(expected, actual);
   }
 
-  @Test void xDirectionShouldBeMinusOneWhenDirectionIsChanged() {
+  @Test void ballShouldChangeDirectionWhenHittingTheLeftWall() {
     Ball sut = new Ball();
-    sut.changeXDir();
-    int expected = -1;
-    int actual = sut.getXDirection();
-    assertEquals(expected, actual);
-  }
-
-  @Test void yDirectionShouldBeOneWhenDirectionIsChanged() {
-    Ball sut = new Ball();
-    sut.changeYDir();
+    for (int i = 0; i < 1600; i++) {
+      sut.move();
+    }
     int expected = 1;
-    int actual = sut.getYDirection();
+    int actual = sut.getXDirection();
     assertEquals(expected, actual);
   }
 }
