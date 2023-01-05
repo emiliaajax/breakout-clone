@@ -143,4 +143,11 @@ public class PaddleTest {
 
     assertEquals(expected, actual);
   }
+
+  @Test void paddleShouldResetToInitialWhenMethodCalled() {
+    sut.reset();
+    int[] expected = {325, 20, 0};
+    int[] actual = {sut.getXPos(), sut.getYPos(), sut.getXDirection()};
+    assertArrayEquals(expected, actual);
+  }
 }
