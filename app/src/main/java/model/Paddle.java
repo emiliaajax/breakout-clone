@@ -40,7 +40,7 @@ public class Paddle {
   }
 
   public void move() {
-    if (isRightWall() || xPos <= 0) {
+    if (isRightWall() || isLeftWall()) {
       stopMoving();
     } else {
       movePaddle();
@@ -59,6 +59,10 @@ public class Paddle {
 
   private boolean isRightWall() {
     return xPos >= FrameCommons.WIDTH - width;
+  }
+
+  private boolean isLeftWall() {
+    return xPos <= 0;
   }
 
   private void stopMoving() {
