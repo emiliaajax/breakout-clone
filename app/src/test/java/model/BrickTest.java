@@ -55,4 +55,12 @@ public class BrickTest {
     boolean actual = sut.isDestroyed();
     assertEquals(expected, actual);
   }
+
+  @Test void brickShouldBeDestroyedWhenDestroyedIsSetToTrue () {
+    Brick sut = new Brick();
+    boolean expected = true;
+    sut.destroy();
+    boolean actual = sut.isDestroyed();
+    assertEquals(expected, actual);
+  }
 }
