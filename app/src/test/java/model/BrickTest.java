@@ -49,7 +49,7 @@ public class BrickTest {
     assertEquals(expected, actual);
   }
 
-  @Test void brickShouldNotBeDestroyedWhenInitalized () {
+  @Test void brickDestroyedShouldBeFalseWhenInitalized () {
     Brick sut = new Brick();
     boolean expected = false;
     boolean actual = sut.isDestroyed();
