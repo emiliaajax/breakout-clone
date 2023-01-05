@@ -37,6 +37,10 @@ public class Paddle {
     return xDir;
   }
 
+  public void move () {
+    xPos += xDir;
+  }
+
   public void onKeyPress(KeyEvent event) {
     if (isLeftArrowKey(event)) {
       moveLeft();
