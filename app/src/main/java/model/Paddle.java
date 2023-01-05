@@ -37,7 +37,7 @@ public class Paddle {
     return xDir;
   }
 
-  public void move () {
+  public void move() {
     xPos += xDir;
   }
 
