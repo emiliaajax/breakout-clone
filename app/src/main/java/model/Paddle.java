@@ -2,6 +2,8 @@ package model;
 
 import java.awt.event.KeyEvent;
 
+import utils.FrameCommons;
+
 public class Paddle {
   private int width;
   private int height;
@@ -38,7 +40,12 @@ public class Paddle {
   }
 
   public void move() {
-    xPos += xDir;
+
+    if (xPos >= FrameCommons.WIDTH - width) {
+      xDir = 0;
+    } else {
+      xPos += xDir;
+    }
   }
 
   public void onKeyPress(KeyEvent event) {
