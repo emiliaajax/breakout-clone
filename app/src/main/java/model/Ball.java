@@ -48,6 +48,10 @@ public class Ball {
     if (y == 0) {
       changeYDir();
     }
+
+    if (x == 800 - width) {
+      changeXDir();
+    }
   }
 
   public void changeXDir() {
