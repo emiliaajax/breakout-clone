@@ -22,4 +22,11 @@ public class PaddleTest {
 
     assertEquals(expected, actual);
   }
+
+  @Test void shouldReturnPaddleHeightOfTwenty() {
+    int expected = 20;
+    int actual = sut.getHeight();
+
+    assertEquals(expected, actual);
+  }
 }
