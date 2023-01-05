@@ -1,6 +1,7 @@
 package model;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -82,6 +83,32 @@ public class PaddleTest {
     sut.move();
 
     int expected = 325;
+    int actual = sut.getXPos();
+
+    assertEquals(expected, actual);
+  }
+
+  @Test void paddlePositionShouldDecreaseOnLeftKeyPress() {
+    KeyEvent mockEvent = mock(KeyEvent.class);
+    when(mockEvent.getKeyCode()).thenReturn(KeyEvent.VK_LEFT);
+
+    sut.onKeyPress(mockEvent);
+    sut.move();
+
+    int expected = 324;
+    int actual = sut.getXPos();
+
+    assertEquals(expected, actual);
+  }
+
+  @Test void paddlePositionShouldIncreaseOnRightKeyPress() {
+    KeyEvent mockEvent = mock(KeyEvent.class);
+    when(mockEvent.getKeyCode()).thenReturn(KeyEvent.VK_RIGHT);
+
+    sut.onKeyPress(mockEvent);
+    sut.move();
+
+    int expected = 326;
     int actual = sut.getXPos();
 
     assertEquals(expected, actual);
