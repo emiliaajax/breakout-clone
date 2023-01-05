@@ -110,11 +110,11 @@ public class BallTest {
     assertEquals(expected, actual);
   }
 
-  @Test void ballShouldResetToInitialPosWhenMethodCalled() {
+  @Test void ballShouldResetToInitialWhenMethodCalled() {
     Ball sut = new Ball();
     sut.resetBall();
-    int[] expected = {50, 50};
-    int[] actual = {sut.getXPos(), sut.getYPos()};
+    int[] expected = {50, 50, 1, -1};
+    int[] actual = {sut.getXPos(), sut.getYPos(), sut.getXDirection(), sut.getYDirection()};
     assertArrayEquals(expected, actual);
   }
 }
