@@ -74,6 +74,16 @@ public class BallTest {
     assertEquals(expected, actual);
   }
 
+  @Test void ballShouldChangeDirectionWhenHittingTheRightWall() {
+    Ball sut = new Ball();
+    for (int i = 0; i < 60; i++) {
+      sut.move();
+    }
+    int expected = -1;
+    int actual = sut.getXDirection();
+    assertEquals(expected, actual);
+  }
+
   @Test void xDirectionShouldBeMinusOneWhenDirectionIsChanged() {
     Ball sut = new Ball();
     sut.changeXDir();
