@@ -44,20 +44,28 @@ public class Ball {
   }
 
   public void move () {
-    x += xDir;
-    y += yDir;
+    moveBall();
 
-    if (x == 0) {
+    if (isWall()) {
       changeXDir();
     }
   
-    if (y == 0) { 
+    if (isCeiling()) { 
       changeYDir();
     }
+  }
 
-    if (x == FrameCommons.WIDTH - width) {
-      changeXDir();
-    }
+  private boolean isWall() {
+    return x <= 0 || x == FrameCommons.WIDTH - width;
+  }
+
+  private boolean isCeiling() {
+    return y <= 0;
+  }
+
+  private void moveBall() {
+    x += xDir;
+    y += yDir;
   }
 
   public void changeXDir() {
