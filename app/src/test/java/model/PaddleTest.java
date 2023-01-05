@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 
+import java.awt.event.KeyEvent;
+import static org.mockito.Mockito.*;
+
 public class PaddleTest {
   private Paddle sut;
 
@@ -41,6 +44,13 @@ public class PaddleTest {
     int expected = 20;
     int actual = sut.getYPos();
     
+    assertEquals(expected, actual);
+  }
+
+  @Test void shouldReturnZeroForInitalXDirection() {
+    int expected = 0;
+    int actual = sut.getXDirection();
+
     assertEquals(expected, actual);
   }
 }
