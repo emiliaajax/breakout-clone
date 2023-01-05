@@ -4,7 +4,7 @@ public class Paddle {
   private int width;
   private int height;
 
-  public Paddle () {
+  public Paddle() {
     width = 150;
     height = 20;
   }
