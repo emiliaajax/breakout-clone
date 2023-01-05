@@ -57,6 +57,12 @@ public class Paddle {
     }
   }
 
+  public void reset() {
+    xPos = 325;
+    yPos = 20;
+    xDir = 0;
+  }
+
   private boolean isRightWall() {
     return xPos >= FrameCommons.WIDTH - width;
   }
