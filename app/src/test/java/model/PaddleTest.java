@@ -36,4 +36,11 @@ public class PaddleTest {
     
     assertEquals(expected, actual);
   }
+
+  @Test void shouldReturnTwentyForPaddleYPosition() {
+    int expected = 20;
+    int actual = sut.getYPos();
+    
+    assertEquals(expected, actual);
+  }
 }
