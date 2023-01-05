@@ -7,4 +7,12 @@ public class PaddleTest {
 	@Test void constructor () {
     assertDoesNotThrow(() -> new Paddle());
   }
+
+  @Test void shouldReturnPaddleWidthOfHundredFifty() {
+    Paddle sut = new Paddle();
+    int expected = 150;
+    int actual = sut.getWidth();
+
+    assertEquals(expected, actual);
+  }
 }
