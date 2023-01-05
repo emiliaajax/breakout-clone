@@ -5,12 +5,14 @@ public class Brick {
 	private int height;
 	private int xPos;
 	private int yPos;
+	private boolean destroyed;
 
 	public Brick () {
 		width = 30;
 		height = 20;
 		xPos = 0;
 		yPos = 0;
+		destroyed = false;
 	}
 
 	public int getWidth() {
@@ -31,5 +33,9 @@ public class Brick {
 
 	public void setXPos(int newXPos) {
 		xPos = newXPos;
+	}
+
+	public boolean isDestroyed() {
+		return destroyed;
 	}
 }
