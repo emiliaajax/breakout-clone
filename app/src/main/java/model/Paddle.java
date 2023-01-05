@@ -40,11 +40,10 @@ public class Paddle {
   }
 
   public void move() {
-
-    if (xPos >= FrameCommons.WIDTH - width) {
-      xDir = 0;
+    if (isRightWall()) {
+      stopMoving();
     } else {
-      xPos += xDir;
+      movePaddle();
     }
   }
 
@@ -56,6 +55,18 @@ public class Paddle {
     if (isRightArrowKey(event)) {
       moveRight();
     }
+  }
+
+  private boolean isRightWall() {
+    return xPos >= FrameCommons.WIDTH - width;
+  }
+
+  private void stopMoving() {
+    xDir = 0;
+  }
+
+  private void movePaddle() {
+    xPos += xDir;
   }
 
   private void moveLeft() {
