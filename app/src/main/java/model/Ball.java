@@ -47,6 +47,10 @@ public class Ball {
     x += xDir;
     y += yDir;
 
+    if (x == 0) {
+      changeXDir();
+    }
+  
     if (y == 0) { 
       changeYDir();
     }
