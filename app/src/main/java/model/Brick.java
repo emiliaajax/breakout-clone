@@ -38,4 +38,8 @@ public class Brick {
 	public boolean isDestroyed() {
 		return destroyed;
 	}
+
+	public void destroy() {
+		destroyed = true;
+	}
 }
