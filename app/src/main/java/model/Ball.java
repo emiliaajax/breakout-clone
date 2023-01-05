@@ -67,4 +67,11 @@ public class Ball {
   public void changeYDir() {
     yDir = yDir * -1;
   }
+
+  public void resetBall() {
+    x = 50;
+    y = 50;
+    xDir = 1;
+    yDir = -1;
+  }
 }
