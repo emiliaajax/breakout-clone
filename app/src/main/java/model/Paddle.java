@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.event.KeyEvent;
+
 public class Paddle {
   private int width;
   private int height;
@@ -33,5 +35,14 @@ public class Paddle {
 
   public int getXDirection() {
     return xDir;
+  }
+
+  public void onKeyPress(KeyEvent event) {
+
+    int key = event.getKeyCode();
+
+    if (key == KeyEvent.VK_LEFT) {
+      xDir = -1;
+    }
   }
 }
