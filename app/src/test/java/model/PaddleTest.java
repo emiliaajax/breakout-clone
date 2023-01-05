@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 public class PaddleTest {
   private Paddle sut;
 
-  @BeforeEach void setUp () {
+  @BeforeEach void setUp() {
     sut = new Paddle();
   }
 
