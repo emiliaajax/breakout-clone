@@ -47,7 +47,7 @@ public class PaddleTest {
     assertEquals(expected, actual);
   }
 
-  @Test void shouldReturnZeroForInitalXDirection () {
+  @Test void shouldReturnZeroForInitalXDirection() {
     int expected = 0;
     int actual = sut.getXDirection();
 
