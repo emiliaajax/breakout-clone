@@ -65,4 +65,16 @@ public class PaddleTest {
 
     assertEquals(expected, actual);
   }
+
+  @Test void testOnKeyPress_rightKey() {
+    KeyEvent mockEvent = mock(KeyEvent.class);
+    when(mockEvent.getKeyCode()).thenReturn(KeyEvent.VK_RIGHT);
+
+    sut.onKeyPress(mockEvent);
+
+    int expected = 1;
+    int actual = sut.getXDirection();
+
+    assertEquals(expected, actual);
+  }
 }
