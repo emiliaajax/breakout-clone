@@ -3,13 +3,20 @@ package model;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class BallTest {
+  private Ball sut;
+
+  @BeforeEach void setUp () {
+    sut = new Ball();
+  }
+
   @Test void constructor () {
     assertDoesNotThrow(() -> new Ball());
   }
 
   @Test void shouldReturnBallWidthOfTen() {
-    Ball sut = new Ball();
     int expected = 10;
     int actual = sut.getWidth();
     
@@ -17,7 +24,6 @@ public class BallTest {
   }
 
   @Test void shouldReturnBallHeightOfTen() {
-    Ball sut = new Ball();
     int expected = 10;
     int actual = sut.getHeight();
     
@@ -25,7 +31,6 @@ public class BallTest {
   }
 
   @Test void shouldReturnOneForBallInitialHorizontalDirection() {
-    Ball sut = new Ball();
     int expected = 1;
     int actual = sut.getXDirection();
     
@@ -33,7 +38,6 @@ public class BallTest {
   }
 
   @Test void shouldReturnMinusOneForBallInitialVerticalDirection() {
-    Ball sut = new Ball();
     int expected = -1;
     int actual = sut.getYDirection();
     
@@ -41,7 +45,6 @@ public class BallTest {
   }
 
   @Test void shouldReturnFiftyForBallXPosition() {
-    Ball sut = new Ball();
     int expected = 50;
     int actual = sut.getXPos();
     
@@ -49,7 +52,6 @@ public class BallTest {
   }
 
   @Test void shouldReturnFiftyForBallYPosition() {
-    Ball sut = new Ball();
     int expected = 50;
     int actual = sut.getYPos();
     
@@ -57,7 +59,6 @@ public class BallTest {
   }
 
   @Test void ballShouldMoveWhenFunctionIsCalled() {
-    Ball sut = new Ball();
     sut.move();
     int[] expected = {51, 49};
     int[] actual = {sut.getXPos(), sut.getYPos()};
@@ -65,7 +66,6 @@ public class BallTest {
   }
 
   @Test void xDirectionShouldBeMinusOneWhenDirectionIsChanged() {
-    Ball sut = new Ball();
     sut.changeXDir();
     int expected = -1;
     int actual = sut.getXDirection();
@@ -73,7 +73,6 @@ public class BallTest {
   }
 
   @Test void yDirectionShouldBeOneWhenDirectionIsChanged() {
-    Ball sut = new Ball();
     sut.changeYDir();
     int expected = 1;
     int actual = sut.getYDirection();
@@ -81,7 +80,6 @@ public class BallTest {
   }
 
   @Test void ballShouldChangeDirectionWhenHittingTheCeiling() {
-    Ball sut = new Ball();
     for (int i = 0; i < 60; i++) {
       sut.move();
     }
@@ -91,7 +89,6 @@ public class BallTest {
   }
 
   @Test void ballShouldChangeDirectionWhenHittingTheRightWall() {
-    Ball sut = new Ball();
     for (int i = 0; i < 800; i++) {
       sut.move();
     }
@@ -101,7 +98,6 @@ public class BallTest {
   }
 
   @Test void ballShouldChangeDirectionWhenHittingTheLeftWall() {
-    Ball sut = new Ball();
     for (int i = 0; i < 1600; i++) {
       sut.move();
     }
@@ -111,7 +107,6 @@ public class BallTest {
   }
 
   @Test void ballShouldResetToInitialWhenMethodCalled() {
-    Ball sut = new Ball();
     sut.reset();
     int[] expected = {50, 50, 1, -1};
     int[] actual = {sut.getXPos(), sut.getYPos(), sut.getXDirection(), sut.getYDirection()};
