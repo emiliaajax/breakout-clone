@@ -76,7 +76,7 @@ public class BallTest {
 
   @Test void ballShouldChangeDirectionWhenHittingTheRightWall() {
     Ball sut = new Ball();
-    for (int i = 0; i < 60; i++) {
+    for (int i = 0; i < 800; i++) {
       sut.move();
     }
     int expected = -1;
