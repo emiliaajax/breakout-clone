@@ -25,7 +25,7 @@ public class Paddle {
     return xPos;
   }
 
-  public int getYPos () {
+  public int getYPos() {
     return yPos;
   }
 }
