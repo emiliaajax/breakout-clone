@@ -5,12 +5,14 @@ public class Paddle {
   private int height;
   private int xPos;
   private int yPos;
+  private int xDir;
 
   public Paddle() {
     width = 150;
     height = 20;
     xPos = 325;
     yPos = 20;
+    xDir = 0;
   }
 
   public int getWidth() {
@@ -27,5 +29,9 @@ public class Paddle {
 
   public int getYPos() {
     return yPos;
+  }
+
+  public int getXDirection() {
+    return xDir;
   }
 }
