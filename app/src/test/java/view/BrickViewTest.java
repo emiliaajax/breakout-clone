@@ -9,19 +9,19 @@ import java.awt.Graphics;
 
 import model.Brick;
 
-public class BrickPanelTest {
+public class BrickViewTest {
   private Brick mockBrick;
   private Graphics graphics;
-  private BrickPanel sut;
+  private BrickView sut;
 
   @BeforeEach void setUp() {
     mockBrick = mock(Brick.class);
     graphics = mock(Graphics.class);
-    sut = new BrickPanel(mockBrick);
+    sut = new BrickView(mockBrick);
   }
 
   @Test void constructor() {
-    assertDoesNotThrow(() -> new BrickPanel(mockBrick));
+    assertDoesNotThrow(() -> new BrickView(mockBrick));
   }
 
   @Test void verifyThatBrickIsPainted() {
@@ -30,7 +30,7 @@ public class BrickPanelTest {
     when(mockBrick.getXPos()).thenReturn(50);
     when(mockBrick.getYPos()).thenReturn(50);
 
-    sut.paintComponent(graphics);
+    sut.paint(graphics);
 
     verify(graphics).fillRect(50, 50, 30, 20);
   }

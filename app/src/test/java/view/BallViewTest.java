@@ -11,15 +11,15 @@ import org.junit.jupiter.api.BeforeEach;
 import java.awt.Graphics;
 import static org.mockito.Mockito.*;
 
-public class BallPanelTest {
+public class BallViewTest {
   private Ball mockBall;
   private Graphics graphics;
-  private BallPanel sut;
+  private BallView sut;
 
   @BeforeEach void setUp() {
     mockBall = mock(Ball.class);
     graphics = mock(Graphics.class);
-    sut = new BallPanel(mockBall);
+    sut = new BallView(mockBall);
   }
 
   @Test void constructor() {
@@ -32,7 +32,7 @@ public class BallPanelTest {
       when(mockBall.getXPos()).thenReturn(50);
       when(mockBall.getYPos()).thenReturn(50);
 
-      sut.paintComponent(graphics);
+      sut.paint(graphics);
 
       verify(graphics).fillOval(50, 50, 10, 10);
   }

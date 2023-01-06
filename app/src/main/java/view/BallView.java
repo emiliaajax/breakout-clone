@@ -5,17 +5,14 @@ import model.Ball;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import javax.swing.JPanel;
-
-public class BallPanel extends JPanel {
+public class BallView {
   private Ball ball;
 
-  public BallPanel(Ball ball) {
+  public BallView(Ball ball) {
     this.ball = ball;
   }
 
-  @Override
-  public void paintComponent(Graphics graphics) {
+  public void paint(Graphics graphics) {
     graphics.setColor(Color.BLUE);
     graphics.fillOval(ball.getXPos(), ball.getYPos(), ball.getWidth(), ball.getHeight());
   }

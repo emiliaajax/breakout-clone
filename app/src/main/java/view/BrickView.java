@@ -1,21 +1,18 @@
 package view;
 
-import javax.swing.JPanel;
-
 import model.Brick;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class BrickPanel extends JPanel {
+public class BrickView {
   private Brick brick;
 
-  public BrickPanel(Brick brick) {
+  public BrickView(Brick brick) {
     this.brick = brick;
   }
 
-  @Override
-  public void paintComponent(Graphics graphics) {
+  public void paint(Graphics graphics) {
     graphics.setColor(Color.GREEN);
     graphics.fillRect(brick.getXPos(), brick.getYPos(), brick.getWidth(), brick.getHeight());
   }

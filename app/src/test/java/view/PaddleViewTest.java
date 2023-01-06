@@ -10,19 +10,19 @@ import org.junit.jupiter.api.Test;
 
 import java.awt.Graphics;
 
-public class PaddlePanelTest {
+public class PaddleViewTest {
   private Paddle mockPaddle;
   private Graphics graphics;
-  private PaddlePanel sut;
+  private PaddleView sut;
 
   @BeforeEach void setUp() {
     mockPaddle = mock(Paddle.class);
     graphics = mock(Graphics.class);
-    sut = new PaddlePanel(mockPaddle);
+    sut = new PaddleView(mockPaddle);
   }
 
   @Test void constructor() {
-    assertDoesNotThrow(() -> new PaddlePanel(mockPaddle));
+    assertDoesNotThrow(() -> new PaddleView(mockPaddle));
   }
 
   @Test void verifyThatPaddleIsPainted() {
@@ -31,7 +31,7 @@ public class PaddlePanelTest {
     when(mockPaddle.getXPos()).thenReturn(325);
     when(mockPaddle.getYPos()).thenReturn(20);
 
-    sut.paintComponent(graphics);
+    sut.paint(graphics);
 
     verify(graphics).fillRect(325, 20, 150, 20);
   }
