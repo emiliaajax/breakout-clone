@@ -16,8 +16,8 @@ public class BrickPanelTest {
 
   @BeforeEach void setUp() {
     mockBrick = mock(Brick.class);
-    sut = new BrickPanel(mockBrick);
     graphics = mock(Graphics.class);
+    sut = new BrickPanel(mockBrick);
   }
 
   @Test void constructor() {

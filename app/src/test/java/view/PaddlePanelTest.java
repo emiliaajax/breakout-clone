@@ -12,13 +12,13 @@ import java.awt.Graphics;
 
 public class PaddlePanelTest {
   private Paddle mockPaddle;
-  private PaddlePanel sut;
   private Graphics graphics;
+  private PaddlePanel sut;
 
   @BeforeEach void setUp() {
     mockPaddle = mock(Paddle.class);
-    sut = new PaddlePanel(mockPaddle);
     graphics = mock(Graphics.class);
+    sut = new PaddlePanel(mockPaddle);
   }
 
   @Test void constructor() {

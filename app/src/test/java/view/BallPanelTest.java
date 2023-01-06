@@ -12,9 +12,9 @@ import java.awt.Graphics;
 import static org.mockito.Mockito.*;
 
 public class BallPanelTest {
-  private BallPanel sut;
   private Ball mockBall;
   private Graphics graphics;
+  private BallPanel sut;
 
   @BeforeEach void setUp() {
     mockBall = mock(Ball.class);
