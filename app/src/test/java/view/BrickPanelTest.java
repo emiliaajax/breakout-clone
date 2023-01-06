@@ -24,7 +24,7 @@ public class BrickPanelTest {
     assertDoesNotThrow(() -> new BrickPanel(mockBrick));
   }
 
-  @Test void paintComponent() {
+  @Test void verifyThatBrickIsPainted() {
     when(mockBrick.getWidth()).thenReturn(30);
     when(mockBrick.getHeight()).thenReturn(20);
     when(mockBrick.getXPos()).thenReturn(50);
