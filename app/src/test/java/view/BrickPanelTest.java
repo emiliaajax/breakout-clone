@@ -32,6 +32,6 @@ public class BrickPanelTest {
 
     sut.paintComponent(graphics);
 
-    verify(graphics).fillOval(50, 50, 30, 20);
+    verify(graphics).fillRect(50, 50, 30, 20);
   }
 }
