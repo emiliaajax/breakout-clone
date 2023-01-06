@@ -17,4 +17,10 @@ public class Game {
     this.paddle = paddle;
     this.gameUI = gameUI;
   }
+
+  public void start() {
+    ball.move();
+    paddle.move();
+    gameUI.repaint();
+  }
 }
