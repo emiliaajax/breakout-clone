@@ -41,7 +41,7 @@ public class GameUITest {
     verify(mockFrame).setVisible(true);
   }
 
-  @Test void testRepaint() {
+  @Test void testRepaint_repaintGamePanel() {
     GameUI sut = new GameUI(mockFrame, WIDTH, HEIGHT, mockGamePanel);
     sut.repaint();
     verify(mockGamePanel).repaint();
