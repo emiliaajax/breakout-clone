@@ -1,6 +1,7 @@
 package view;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 import javax.swing.JFrame;
@@ -40,5 +41,12 @@ public class GameUITest {
     sut.initUI();
 
     verify(mockFrame).add(mockGamePanel);
+  }
+
+  @Test void testInitUI_setVisibilityToTrue() {
+    when(mockFrame.isVisible()).thenReturn(false);
+    sut.initUI();
+    mockFrame.setVisible(true);
+    assertTrue(mockFrame.isVisible());
   }
 }
