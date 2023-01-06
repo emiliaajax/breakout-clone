@@ -19,10 +19,10 @@ public class BallPanelTest {
   @BeforeEach void setUp() {
     Ball mockBall = mock(Ball.class);
     Graphics graphics = mock(Graphics.class);
-    BallPanel sut = new BallPanel();
+    BallPanel sut = new BallPanel(mockBall);
   }
 
   @Test void constructor () {
-    assertDoesNotThrow(() -> new BallPanel(mockBall));
+    assertDoesNotThrow(() -> sut);
   }
 }
