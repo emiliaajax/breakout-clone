@@ -28,7 +28,6 @@ public class App {
     PaddleView paddleView = new PaddleView(paddle);
 
     GamePanel gamePanel = new GamePanel(ballView, brickView, paddleView);
-
     GameUI gameUI = new GameUI(frame, FrameCommons.WIDTH, FrameCommons.HEIGHT, gamePanel);
   }
 }
