@@ -9,7 +9,7 @@ public class GamePanel {
   private Brick brick;
   private Paddle paddle;
 
-  public GamePanel (Ball ball, Brick brick, Paddle paddle) {
+  public GamePanel(Ball ball, Brick brick, Paddle paddle) {
     this.ball = ball;
     this.brick = brick;
     this.paddle = paddle;
