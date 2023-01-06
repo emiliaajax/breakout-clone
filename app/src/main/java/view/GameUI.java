@@ -13,11 +13,14 @@ public class GameUI {
     this.width = width;
     this.height = height;
     this.gamePanel = gamePanel;
+
+    initUI();
   }
 
-  void initUI() {
+  private void initUI() {
     createFrame();
     frame.add(gamePanel);
+    frame.setVisible(true);
   }
 
   private void createFrame() {

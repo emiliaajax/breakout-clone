@@ -1,7 +1,6 @@
 package view;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 import javax.swing.JFrame;
@@ -15,13 +14,12 @@ public class GameUITest {
 
   private JFrame mockFrame;
   private GamePanel mockGamePanel;
-  private GameUI sut;
 
   @BeforeEach void setUp() {
     mockFrame = mock(JFrame.class);
     mockGamePanel = mock(GamePanel.class);
 
-    sut = new GameUI(mockFrame, WIDTH, HEIGHT, mockGamePanel);
+    new GameUI(mockFrame, WIDTH, HEIGHT, mockGamePanel);
   }
 
   @Test void constructor() {
@@ -29,8 +27,6 @@ public class GameUITest {
   }
 
   @Test void testInitUI_createsFrame() {
-    sut.initUI();
-
     verify(mockFrame).setBounds(30, 30, 800, 600);
     verify(mockFrame).setTitle("Breakout");
     verify(mockFrame).setResizable(false);
@@ -38,15 +34,10 @@ public class GameUITest {
   }
 
   @Test void testInitUI_addPanelToFrame() {
-    sut.initUI();
-
     verify(mockFrame).add(mockGamePanel);
   }
 
   @Test void testInitUI_setVisibilityToTrue() {
-    when(mockFrame.isVisible()).thenReturn(false);
-    sut.initUI();
-    mockFrame.setVisible(true);
-    assertTrue(mockFrame.isVisible());
+    verify(mockFrame).setVisible(true);
   }
 }
