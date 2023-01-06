@@ -3,12 +3,12 @@
  */
 package controller;
 
-import javax.swing.JFrame;
+// import javax.swing.JFrame;
 
-import view.GameUI;
+// import view.GameUI;
 
 public class App {
   public static void main(String[] args) {
-    GameUI gameUI = new GameUI(new JFrame());
+    // GameUI gameUI = new GameUI(new JFrame());
   }
 }
