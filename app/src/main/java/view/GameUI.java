@@ -25,4 +25,11 @@ public class GameUI {
     this.paddle = paddle;
     this.gamePanel = gamePanel;
   }
+
+  void initUI() {
+    frame.setBounds(30, 30, width, height);
+    frame.setTitle("Breakout");
+    frame.setResizable(false);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  }
 }

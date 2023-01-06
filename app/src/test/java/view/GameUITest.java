@@ -40,7 +40,7 @@ public class GameUITest {
   @Test void testInitUI_createsFrame() {
     sut.initUI();
 
-    verify(mockFrame).setBounds(30, 30, 800, 800);
+    verify(mockFrame).setBounds(30, 30, 800, 600);
     verify(mockFrame).setTitle("Breakout");
     verify(mockFrame).setResizable(false);
     verify(mockFrame).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
