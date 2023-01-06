@@ -40,4 +40,8 @@ public class GameUITest {
   @Test void testInitUI_setVisibilityToTrue() {
     verify(mockFrame).setVisible(true);
   }
+
+  @Test void testRepaint() {
+    verify(mockGamePanel).repaint();
+  }
 }
