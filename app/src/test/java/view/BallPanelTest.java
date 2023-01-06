@@ -12,6 +12,10 @@ import java.awt.Graphics;
 import static org.mockito.Mockito.*;
 
 public class BallPanelTest {
+  private BallPanel sut;
+  private Ball mockBall;
+  private Graphics graphics;
+
   @BeforeEach void setUp() {
     BallPanel sut = new BallPanel();
     Ball mockBall = mock(Ball.class);
@@ -20,5 +24,16 @@ public class BallPanelTest {
 
   @Test void constructor () {
     assertDoesNotThrow(() -> new BallPanel());
+  }
+
+  @Test void ballShouldBePaintedWhenMethodIsCalled() {
+    when(mockBall.getWidth()).thenReturn(10);
+    when(mockBall.getHeight()).thenReturn(10);
+    when(mockBall.getXPos()).thenReturn(50);
+    when(mockBall.getYPos()).thenReturn(50);
+
+    sut.paintComponent(graphics);
+
+    verify(graphics).fillOval(50, 50, 10, 10);
   }
 }
