@@ -17,6 +17,10 @@ public class GameUI {
     initUI();
   }
 
+  public void repaint() {
+    gamePanel.repaint();
+  }
+
   private void initUI() {
     createFrame();
     frame.add(gamePanel);
