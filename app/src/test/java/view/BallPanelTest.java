@@ -22,7 +22,7 @@ public class BallPanelTest {
     BallPanel sut = new BallPanel(mockBall);
   }
 
-  @Test void constructor () {
+  @Test void constructor() {
     assertDoesNotThrow(() -> sut);
   }
 }
