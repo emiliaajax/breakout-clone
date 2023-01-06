@@ -19,6 +19,7 @@ public class GamePanelTest {
     mockBrickView = mock(BrickView.class);
     mockPaddleView = mock(PaddleView.class);
     mockGraphics = mock(Graphics.class);
+
     sut = new GamePanel(mockBallView, mockBrickView, mockPaddleView);
   }
 
