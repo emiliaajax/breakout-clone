@@ -16,13 +16,13 @@ public class GameUI {
   private GamePanel gamePanel;
 
   public GameUI(JFrame frame, int width, int height, 
-    Ball ball, Brick brick, Paddle paddle, GamePanel gamePanel) {
-      this.frame = frame;
-      this.width = width;
-      this.height = height;
-      this.ball = ball;
-      this.brick = brick;
-      this.paddle = paddle;
-      this.gamePanel = gamePanel;
-    }
+      Ball ball, Brick brick, Paddle paddle, GamePanel gamePanel) {
+    this.frame = frame;
+    this.width = width;
+    this.height = height;
+    this.ball = ball;
+    this.brick = brick;
+    this.paddle = paddle;
+    this.gamePanel = gamePanel;
+  }
 }
