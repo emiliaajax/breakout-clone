@@ -11,11 +11,11 @@ import model.Brick;
 public class BrickPanelTest {
   private Brick mockBrick;
 
-  @BeforeEach void setUp () {
+  @BeforeEach void setUp() {
     Brick mockBrick = mock(Brick.class);
   }
 
-  @Test void constructor () {
+  @Test void constructor() {
     assertDoesNotThrow(() -> new BrickPanel(mockBrick));
   }
 }
