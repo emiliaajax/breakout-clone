@@ -17,12 +17,23 @@ public class BallPanelTest {
   private Graphics graphics;
 
   @BeforeEach void setUp() {
-    Ball mockBall = mock(Ball.class);
-    Graphics graphics = mock(Graphics.class);
-    BallPanel sut = new BallPanel(mockBall);
+    mockBall = mock(Ball.class);
+    graphics = mock(Graphics.class);
+    sut = new BallPanel(mockBall);
   }
 
   @Test void constructor() {
     assertDoesNotThrow(() -> sut);
+  }
+  
+  @Test void verifyThatBallIsPainted() {
+      when(mockBall.getWidth()).thenReturn(10);
+      when(mockBall.getHeight()).thenReturn(10);
+      when(mockBall.getXPos()).thenReturn(50);
+      when(mockBall.getYPos()).thenReturn(50);
+
+      sut.paintComponent(graphics);
+
+      verify(graphics).fillOval(50, 50, 10, 10);
   }
 }
