@@ -21,6 +21,7 @@ public class GameUITest {
   private Brick mockBrick;
   private Paddle mockPaddle;
   private GamePanel mockGamePanel;
+  private GameUI sut;
 
   @BeforeEach void setUp() {
     mockFrame = mock(JFrame.class);
@@ -28,10 +29,21 @@ public class GameUITest {
     mockBrick = mock(Brick.class);
     mockPaddle = mock(Paddle.class);
     mockGamePanel = mock(GamePanel.class);
+
+    sut = new GameUI(mockFrame, WIDTH, HEIGHT, mockBall, mockBrick, mockPaddle, mockGamePanel);
   }
 
   @Test void constructor() {
     assertDoesNotThrow(() -> new GameUI(mockFrame, WIDTH, HEIGHT, mockBall, mockBrick, mockPaddle, mockGamePanel));
+  }
+
+  @Test void testInitUI_createsFrame() {
+    sut.initUI();
+
+    verify(mockFrame).setBounds(30, 30, 800, 800);
+    verify(mockFrame).setTitle("Breakout");
+    verify(mockFrame).setResizable(false);
+    verify(mockFrame).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   }
 
 }
