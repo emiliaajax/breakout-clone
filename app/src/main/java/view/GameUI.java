@@ -28,6 +28,7 @@ public class GameUI {
 
   void initUI() {
     createFrame();
+    frame.add(gamePanel);
   }
 
   private void createFrame() {
