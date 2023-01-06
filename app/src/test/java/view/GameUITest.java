@@ -8,33 +8,23 @@ import javax.swing.JFrame;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import model.Ball;
-import model.Brick;
-import model.Paddle;
-
 public class GameUITest {
   private static final int WIDTH = 800;
   private static final int HEIGHT = 600;
 
   private JFrame mockFrame;
-  private Ball mockBall;
-  private Brick mockBrick;
-  private Paddle mockPaddle;
   private GamePanel mockGamePanel;
   private GameUI sut;
 
   @BeforeEach void setUp() {
     mockFrame = mock(JFrame.class);
-    mockBall = mock(Ball.class);
-    mockBrick = mock(Brick.class);
-    mockPaddle = mock(Paddle.class);
     mockGamePanel = mock(GamePanel.class);
 
-    sut = new GameUI(mockFrame, WIDTH, HEIGHT, mockBall, mockBrick, mockPaddle, mockGamePanel);
+    sut = new GameUI(mockFrame, WIDTH, HEIGHT, mockGamePanel);
   }
 
   @Test void constructor() {
-    assertDoesNotThrow(() -> new GameUI(mockFrame, WIDTH, HEIGHT, mockBall, mockBrick, mockPaddle, mockGamePanel));
+    assertDoesNotThrow(() -> new GameUI(mockFrame, WIDTH, HEIGHT, mockGamePanel));
   }
 
   @Test void testInitUI_createsFrame() {
