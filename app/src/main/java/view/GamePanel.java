@@ -1,17 +1,13 @@
 package view;
 
-import model.Ball;
-import model.Brick;
-import model.Paddle;
-
 public class GamePanel {
-  private Ball ball;
-  private Brick brick;
-  private Paddle paddle;
+  private BallView ballView;
+  private BrickView brickView;
+  private PaddleView paddleView;
 
-  public GamePanel(Ball ball, Brick brick, Paddle paddle) {
-    this.ball = ball;
-    this.brick = brick;
-    this.paddle = paddle;
+  public GamePanel(BallView ballView, BrickView brickView, PaddleView paddleView) {
+    this.ballView = ballView;
+    this.brickView = brickView;
+    this.paddleView = paddleView;
   }
 }
