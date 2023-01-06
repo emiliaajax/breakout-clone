@@ -17,15 +17,26 @@ public class GameTest {
 	private Brick mockBrick;
 	private Paddle mockPaddle;
 	private GameUI mockGameUI;
+	private Game sut;
 
 	@BeforeEach void setUp() {
 		mockBall = mock(Ball.class);
 		mockBrick = mock(Brick.class);
 		mockPaddle = mock(Paddle.class);
 		mockGameUI = mock(GameUI.class);
+
+		sut = new Game(mockBall, mockBrick, mockPaddle, mockGameUI);
 	}
 
   @Test void constructor() {
 		assertDoesNotThrow(() -> new Game(mockBall, mockBrick, mockPaddle, mockGameUI));
+	}
+
+	@Test void testStart() {
+		sut.start();
+
+		verify(mockBall).move();
+		verify(mockPaddle).move();
+		verify(mockGameUI).repaint();
 	}
 }
