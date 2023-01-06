@@ -46,4 +46,9 @@ public class GameUITest {
     verify(mockFrame).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   }
 
+  @Test void testInitUI_addPanelToFrame() {
+    sut.initUI();
+
+    verify(mockFrame).add(mockGamePanel);
+  }
 }
