@@ -28,7 +28,7 @@ public class GameUITest {
     mockPaddle = mock(Paddle.class);
   }
 
-  @Test void constructor () {
+  @Test void constructor() {
     assertDoesNotThrow(() -> new GameUI(mockFrame, WIDTH, HEIGHT, mockBall, mockBrick, mockPaddle));
   }
 }
