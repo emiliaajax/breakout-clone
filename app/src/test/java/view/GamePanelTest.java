@@ -27,7 +27,7 @@ public class GamePanelTest {
   }
 
   @Test void verifyThatComponentsArePainted() {
-    sut.paintComponent();
+    sut.paintComponent(mockGraphics);
 
     verify(mockBallView).paint(mockGraphics);
     verify(mockBrickView).paint(mockGraphics);

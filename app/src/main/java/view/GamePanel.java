@@ -1,6 +1,10 @@
 package view;
 
-public class GamePanel {
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+public class GamePanel extends JPanel {
   private BallView ballView;
   private BrickView brickView;
   private PaddleView paddleView;
@@ -9,5 +13,11 @@ public class GamePanel {
     this.ballView = ballView;
     this.brickView = brickView;
     this.paddleView = paddleView;
+  }
+
+  @Override public void paintComponent(Graphics graphics) {
+    ballView.paint(graphics);
+    brickView.paint(graphics);
+    paddleView.paint(graphics);
   }
 }
