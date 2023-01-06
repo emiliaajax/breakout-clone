@@ -20,15 +20,18 @@ public class GameUITest {
   private Ball mockBall;
   private Brick mockBrick;
   private Paddle mockPaddle;
+  private GamePanel mockGamePanel;
 
   @BeforeEach void setUp() {
     mockFrame = mock(JFrame.class);
     mockBall = mock(Ball.class);
     mockBrick = mock(Brick.class);
     mockPaddle = mock(Paddle.class);
+    mockGamePanel = mock(GamePanel.class);
   }
 
   @Test void constructor() {
-    assertDoesNotThrow(() -> new GameUI(mockFrame, WIDTH, HEIGHT, mockBall, mockBrick, mockPaddle));
+    assertDoesNotThrow(() -> new GameUI(mockFrame, WIDTH, HEIGHT, mockBall, mockBrick, mockPaddle, mockGamePanel));
   }
+
 }
