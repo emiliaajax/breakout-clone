@@ -15,7 +15,7 @@ public class Paddle {
     width = 150;
     height = 20;
     xPos = 325;
-    yPos = 20;
+    yPos = 520;
     xDir = 0;
   }
 
@@ -40,8 +40,10 @@ public class Paddle {
   }
 
   public void move() {
-    if (isRightWall() || isLeftWall()) {
-      stopMoving();
+    if (isRightWall()) {
+      stopMovingRight();
+    } else if (isLeftWall()) {
+      stopMovingLeft();
     } else {
       movePaddle();
     }
@@ -65,7 +67,7 @@ public class Paddle {
 
   public void reset() {
     xPos = 325;
-    yPos = 20;
+    yPos = 520;
     xDir = 0;
   }
 
@@ -77,6 +79,16 @@ public class Paddle {
     return xPos <= 0;
   }
 
+  private void stopMovingLeft() {
+    xPos = 0;
+    xDir = 0;
+  }
+
+  private void stopMovingRight() {
+    xPos = FrameCommons.WIDTH - width;
+    xDir = 0;
+  }
+
   private void stopMoving() {
     xDir = 0;
   }
@@ -86,11 +98,11 @@ public class Paddle {
   }
 
   void moveLeft() {
-    xDir = -1;
+    xDir = -2;
   }
 
   void moveRight() {
-    xDir = 1;
+    xDir = 2;
   }
 
   private boolean isLeftArrowKey(KeyEvent event) {
