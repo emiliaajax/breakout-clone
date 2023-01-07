@@ -17,6 +17,7 @@ public class PaddleAdapter extends KeyAdapter {
     paddle.onKeyPress(event);
   }
 
+  @Override
   public void keyReleased(KeyEvent event) {
     paddle.onKeyRelease(event);
   }
