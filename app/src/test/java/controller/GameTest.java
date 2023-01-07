@@ -13,6 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import static org.mockito.Mockito.*;
 
 import java.util.Timer;
+import java.util.TimerTask;
 
 public class GameTest {
 	private Ball mockBall;
@@ -42,5 +43,11 @@ public class GameTest {
 		verify(mockBall).move();
 		verify(mockPaddle).move();
 		verify(mockGameUI).repaint();
+	}
+
+	@Test void testStartSchedulesTimerTask() {
+		sut.start();
+
+		verify(mockTimer).scheduleAtFixedRate(any(TimerTask.class), eq(0L), eq(10L));
 	}
 }
