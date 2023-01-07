@@ -86,4 +86,18 @@ public class GameTest {
 
 		verify(mockBall).changeYDir();
 	}
+
+	@Test void checkCollision_betweenBallAndBrick_fromTop() {
+		when(mockBall.getYPos()).thenReturn(100);
+		when(mockBrick.getYPos()).thenReturn(100);
+		when(mockBall.getHeight()).thenReturn(20);
+		
+		sut.checkCollision();
+
+		verify(mockBall.getYPos());
+		verify(mockBrick.getYPos());
+		verify(mockBrick.getWidth());
+
+		verify(mockBall).changeYDir();
+	}
 }
