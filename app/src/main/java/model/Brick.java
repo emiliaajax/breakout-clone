@@ -35,6 +35,10 @@ public class Brick {
 		xPos = newXPos;
 	}
 
+	public void setYPos(int newYPos) {
+		yPos = newYPos;
+	}
+
 	public boolean isDestroyed() {
 		return destroyed;
 	}
