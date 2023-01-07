@@ -40,9 +40,9 @@ public class Paddle {
   }
 
   public void move() {
-    if (isRightWall()) {
+    if (isRightWall() && isNextStepRight()) {
       stopMovingRight();
-    } else if (isLeftWall()) {
+    } else if (isLeftWall() && isNextStepLeft()) {
       stopMovingLeft();
     } else {
       movePaddle();
@@ -77,6 +77,14 @@ public class Paddle {
 
   private boolean isLeftWall() {
     return xPos <= 0;
+  }
+
+  private boolean isNextStepRight() {
+    return xPos + xDir > FrameCommons.WIDTH - width;
+  }
+
+  private boolean isNextStepLeft() {
+    return xPos + xDir < 0;
   }
 
   private void stopMovingLeft() {
