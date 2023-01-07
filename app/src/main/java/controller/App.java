@@ -31,7 +31,7 @@ public class App {
     PaddleView paddleView = new PaddleView(paddle);
 
     GamePanel gamePanel = new GamePanel(ballView, brickView, paddleView);
-    GameUI gameUI = new GameUI(frame, FrameCommons.WIDTH, FrameCommons.HEIGHT, gamePanel);
+    GameUI gameUI = new GameUI(frame, FrameCommons.WIDTH, FrameCommons.HEIGHT, paddle, gamePanel);
 
     Game game = new Game(ball, brick, paddle, gameUI, timer);
     game.start();

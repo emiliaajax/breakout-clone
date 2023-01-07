@@ -23,7 +23,7 @@ public class GameUITest {
     mockGamePanel = mock(GamePanel.class);
     mockPaddle = mock(Paddle.class);
 
-    new GameUI(mockFrame, WIDTH, HEIGHT, mockGamePanel);
+    new GameUI(mockFrame, WIDTH, HEIGHT, mockPaddle, mockGamePanel);
   }
 
   @Test void constructor() {
@@ -46,7 +46,7 @@ public class GameUITest {
   }
 
   @Test void testRepaint_repaintGamePanel() {
-    GameUI sut = new GameUI(mockFrame, WIDTH, HEIGHT, mockGamePanel);
+    GameUI sut = new GameUI(mockFrame, WIDTH, HEIGHT, mockPaddle, mockGamePanel);
     sut.repaint();
     verify(mockGamePanel).repaint();
   }
