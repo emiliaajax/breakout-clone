@@ -59,7 +59,7 @@ public class GameTest {
 		verify(mockTimer).scheduleAtFixedRate(any(TimerTask.class), eq(0L), eq(10L));
 	}
 
-	@Test void checkCollision_collisionBetweenBallAndPaddle() {
+	@Test void checkCollision_betweenBallAndPaddle() {
 		when(mockBall.getYPos()).thenReturn(500);
 		when(mockPaddle.getYPos()).thenReturn(520);
 		when(mockBall.getHeight()).thenReturn(20);
