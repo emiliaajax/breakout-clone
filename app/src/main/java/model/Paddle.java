@@ -57,6 +57,12 @@ public class Paddle {
     }
   }
 
+  public void onKeyRelease(KeyEvent event) {
+    if (isLeftArrowKey(event)) {
+      stopMoving();
+    }
+  }
+
   public void reset() {
     xPos = 325;
     yPos = 20;
