@@ -77,9 +77,9 @@ public class GameTest {
 
 		sut.checkCollision();
 
-		verify(mockBall).getYPos();
+		verify(mockBall, times(2)).getYPos();
 		verify(mockPaddle).getYPos();
-		verify(mockBall).getHeight();
+		verify(mockBall, times(2)).getHeight();
 
 		verify(mockBall, times(2)).getXPos();
 		verify(mockPaddle, times(2)).getXPos();
@@ -89,7 +89,7 @@ public class GameTest {
 	}
 
 	@Test void checkCollision_betweenBallAndBrick_fromTop() {
-		when(mockBall.getYPos()).thenReturn(100);
+		when(mockBall.getYPos()).thenReturn(80);
 		when(mockBrick.getYPos()).thenReturn(100);
 		when(mockBall.getHeight()).thenReturn(20);
 
@@ -99,13 +99,13 @@ public class GameTest {
 		
 		sut.checkCollision();
 
-		verify(mockBall).getYPos();
+		verify(mockBall, times(2)).getYPos();
 		verify(mockBrick).getYPos();
-		verify(mockBall).getHeight();
+		verify(mockBall, times(2)).getHeight();
 
-		verify(mockBrick).getWidth();
 		verify(mockBrick, times(2)).getXPos();
 		verify(mockBall, times(2)).getXPos();
+		verify(mockBrick).getWidth();
 
 		verify(mockBall).changeYDir();
 	}

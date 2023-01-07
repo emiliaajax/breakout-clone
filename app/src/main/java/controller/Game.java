@@ -40,5 +40,9 @@ public class Game {
     if (ball.getYPos() == paddle.getYPos() - ball.getHeight() && ball.getXPos() >= paddle.getXPos() && ball.getXPos() <= paddle.getXPos() + paddle.getWidth()) {
       ball.changeYDir();
     }
+
+    if (ball.getYPos() == brick.getYPos() - ball.getHeight() && ball.getXPos() >= brick.getXPos() && ball.getXPos() <= brick.getXPos() + brick.getWidth()) {
+      ball.changeYDir();
+    }
   }
 }
