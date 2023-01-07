@@ -2,22 +2,18 @@ package view;
 
 import javax.swing.JFrame;
 
-import model.Paddle;
-
 public class GameUI {
   private JFrame frame;
   private int width;
   private int height;
   private GamePanel gamePanel;
-  private Paddle paddle;
   private PaddleAdapter paddleAdapter;
 
-  public GameUI(JFrame frame, int width, int height, Paddle paddle, PaddleAdapter paddleAdapter, GamePanel gamePanel) {
+  public GameUI(JFrame frame, int width, int height, PaddleAdapter paddleAdapter, GamePanel gamePanel) {
     this.frame = frame;
     this.width = width;
     this.height = height;
     this.gamePanel = gamePanel;
-    this.paddle = paddle;
     this.paddleAdapter = paddleAdapter;
 
     initUI();

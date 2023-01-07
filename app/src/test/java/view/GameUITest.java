@@ -8,8 +8,6 @@ import javax.swing.JFrame;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import model.Paddle;
-
 public class GameUITest {
   private static final int X_POS = 30;
   private static final int Y_POS = 30;
@@ -19,20 +17,18 @@ public class GameUITest {
 
   private JFrame mockFrame;
   private GamePanel mockGamePanel;
-  private Paddle mockPaddle;
   private PaddleAdapter mockPaddleAdapter;
 
   @BeforeEach void setUp() {
     mockFrame = mock(JFrame.class);
     mockGamePanel = mock(GamePanel.class);
-    mockPaddle = mock(Paddle.class);
     mockPaddleAdapter = mock(PaddleAdapter.class);
 
-    new GameUI(mockFrame, WIDTH, HEIGHT, mockPaddle, mockPaddleAdapter, mockGamePanel);
+    new GameUI(mockFrame, WIDTH, HEIGHT, mockPaddleAdapter, mockGamePanel);
   }
 
   @Test void constructor() {
-    assertDoesNotThrow(() -> new GameUI(mockFrame, WIDTH, HEIGHT, mockPaddle, mockPaddleAdapter, mockGamePanel));
+    assertDoesNotThrow(() -> new GameUI(mockFrame, WIDTH, HEIGHT, mockPaddleAdapter, mockGamePanel));
   }
 
   @Test void testInitUI_createsFrame() {
@@ -51,7 +47,7 @@ public class GameUITest {
   }
 
   @Test void testRepaint_repaintGamePanel() {
-    GameUI sut = new GameUI(mockFrame, WIDTH, HEIGHT, mockPaddle, mockPaddleAdapter, mockGamePanel);
+    GameUI sut = new GameUI(mockFrame, WIDTH, HEIGHT, mockPaddleAdapter, mockGamePanel);
     sut.repaint();
     verify(mockGamePanel).repaint();
   }
