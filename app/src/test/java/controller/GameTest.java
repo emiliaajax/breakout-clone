@@ -13,7 +13,6 @@ import org.junit.jupiter.api.BeforeEach;
 import static org.mockito.Mockito.*;
 
 import java.util.Timer;
-import java.util.TimerTask;
 
 public class GameTest {
 	private Ball mockBall;
@@ -30,7 +29,7 @@ public class GameTest {
 		mockGameUI = mock(GameUI.class);
 		mockTimer = mock(Timer.class);
 
-		sut = new Game(mockBall, mockBrick, mockPaddle, mockGameUI);
+		sut = new Game(mockBall, mockBrick, mockPaddle, mockGameUI, mockTimer);
 	}
 
   @Test void constructor() {
