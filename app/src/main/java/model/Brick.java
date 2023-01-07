@@ -8,10 +8,10 @@ public class Brick {
 	private boolean destroyed;
 
 	public Brick () {
-		width = 30;
-		height = 20;
-		xPos = 0;
-		yPos = 0;
+		width = 80;
+		height = 40;
+		xPos = 360;
+		yPos = 100;
 		destroyed = false;
 	}
 
