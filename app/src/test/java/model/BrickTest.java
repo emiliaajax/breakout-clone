@@ -6,6 +6,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 
 public class BrickTest {
+  private static final int BRICK_WIDTH = 80;
+  private static final int BRICK_HEIGHT = 40;
+  private static final int BRICK_X_POS = 360;
+  private static final int BRICK_Y_POS = 100;
   private Brick sut;
 
   @BeforeEach void setUp() {
@@ -17,28 +21,28 @@ public class BrickTest {
   }
 
   @Test void shouldReturnBrickWidth() {
-    int expected = 80;
+    int expected = BRICK_WIDTH;
     int actual = sut.getWidth();
     
     assertEquals(expected, actual);
   }
 
   @Test void shouldReturnBrickHeight() {
-    int expected = 40;
+    int expected = BRICK_HEIGHT;
     int actual = sut.getHeight();
     
     assertEquals(expected, actual);
   }
 
-  @Test void shouldReturnZeroAsInitialXPos() {
-    int expected = 360;
+  @Test void shouldReturnInitialXPos() {
+    int expected = BRICK_X_POS;
     int actual = sut.getXPos();
     
     assertEquals(expected, actual);
   }
 
-  @Test void shouldReturnZeroAsInitialYPos() {
-    int expected = 100;
+  @Test void shouldReturnInitialYPos() {
+    int expected = BRICK_Y_POS;
     int actual = sut.getYPos();
     
     assertEquals(expected, actual);
