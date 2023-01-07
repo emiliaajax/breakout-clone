@@ -80,6 +80,7 @@ public class GameTest {
 		verify(mockBall).getYPos();
 		verify(mockPaddle).getYPos();
 		verify(mockBall).getHeight();
+
 		verify(mockBall, times(2)).getXPos();
 		verify(mockPaddle, times(2)).getXPos();
 		verify(mockPaddle).getWidth();
@@ -91,12 +92,20 @@ public class GameTest {
 		when(mockBall.getYPos()).thenReturn(100);
 		when(mockBrick.getYPos()).thenReturn(100);
 		when(mockBall.getHeight()).thenReturn(20);
+
+		when(mockBrick.getWidth()).thenReturn(80);
+		when(mockBrick.getXPos()).thenReturn(360);
+		when(mockBall.getXPos()).thenReturn(400);
 		
 		sut.checkCollision();
 
-		verify(mockBall.getYPos());
-		verify(mockBrick.getYPos());
-		verify(mockBall.getHeight());
+		verify(mockBall).getYPos();
+		verify(mockBrick).getYPos();
+		verify(mockBall).getHeight();
+
+		verify(mockBrick).getWidth();
+		verify(mockBrick, times(2)).getXPos();
+		verify(mockBall, times(2)).getXPos();
 
 		verify(mockBall).changeYDir();
 	}
