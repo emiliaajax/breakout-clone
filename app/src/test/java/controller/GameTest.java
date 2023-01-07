@@ -44,6 +44,7 @@ public class GameTest {
 		ArgumentCaptor<TimerTask> timerTaskCaptor = ArgumentCaptor.forClass(TimerTask.class);
 
 		verify(mockTimer).scheduleAtFixedRate(timerTaskCaptor.capture(), eq(0L), eq(10L));
+
 		TimerTask timerTask = timerTaskCaptor.getValue();
 		timerTask.run();
 
