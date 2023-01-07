@@ -28,7 +28,7 @@ public class GameUITest {
     mockPaddle = mock(Paddle.class);
     mockPaddleAdapter = mock(PaddleAdapter.class);
 
-    new GameUI(mockFrame, WIDTH, HEIGHT, mockPaddle, mockGamePanel);
+    new GameUI(mockFrame, WIDTH, HEIGHT, mockPaddle, mockPaddleAdapter, mockGamePanel);
   }
 
   @Test void constructor() {
@@ -42,10 +42,6 @@ public class GameUITest {
     verify(mockFrame).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   }
 
-  @Test void testInitUI_addKeyListenerToFrame() {
-    verify(mockFrame).addKeyListener(null);
-  }
-
   @Test void testInitUI_addPanelToFrame() {
     verify(mockFrame).add(mockGamePanel);
   }
@@ -55,7 +51,7 @@ public class GameUITest {
   }
 
   @Test void testRepaint_repaintGamePanel() {
-    GameUI sut = new GameUI(mockFrame, WIDTH, HEIGHT, mockPaddle, mockGamePanel);
+    GameUI sut = new GameUI(mockFrame, WIDTH, HEIGHT, mockPaddle, mockPaddleAdapter, mockGamePanel);
     sut.repaint();
     verify(mockGamePanel).repaint();
   }

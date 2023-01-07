@@ -15,6 +15,7 @@ import view.BallView;
 import view.BrickView;
 import view.GamePanel;
 import view.GameUI;
+import view.PaddleAdapter;
 import view.PaddleView;
 
 public class App {
@@ -31,7 +32,8 @@ public class App {
     PaddleView paddleView = new PaddleView(paddle);
 
     GamePanel gamePanel = new GamePanel(ballView, brickView, paddleView);
-    GameUI gameUI = new GameUI(frame, FrameCommons.WIDTH, FrameCommons.HEIGHT, paddle, gamePanel);
+    PaddleAdapter paddleAdapter = new PaddleAdapter(paddle);
+    GameUI gameUI = new GameUI(frame, FrameCommons.WIDTH, FrameCommons.HEIGHT, paddle, paddleAdapter, gamePanel);
 
     Game game = new Game(ball, brick, paddle, gameUI, timer);
     game.start();
