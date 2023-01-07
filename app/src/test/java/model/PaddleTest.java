@@ -10,6 +10,12 @@ import java.awt.event.KeyEvent;
 import static org.mockito.Mockito.*;
 
 public class PaddleTest {
+  private static final int FRAME_WIDTH = 800;
+  private static final int PADDLE_WIDTH = 150;
+  private static final int PADDLE_HEIGHT = 20;
+  private static final int PADDLE_INIT_X_POS = 325;
+  private static final int PADDLE_INIT_Y_POS = 20;
+
   private Paddle sut;
 
   @BeforeEach void setUp() {
@@ -21,28 +27,28 @@ public class PaddleTest {
   }
 
   @Test void shouldReturnPaddleWidthOfHundredFifty() {
-    int expected = 150;
+    int expected = PADDLE_WIDTH;
     int actual = sut.getWidth();
 
     assertEquals(expected, actual);
   }
 
   @Test void shouldReturnPaddleHeightOfTwenty() {
-    int expected = 20;
+    int expected = PADDLE_HEIGHT;
     int actual = sut.getHeight();
 
     assertEquals(expected, actual);
   }
 
   @Test void shouldReturnThreeHundredTwentyFiveForPaddleXPosition() {
-    int expected = 325;
+    int expected = PADDLE_INIT_X_POS;
     int actual = sut.getXPos();
     
     assertEquals(expected, actual);
   }
 
   @Test void shouldReturnTwentyForPaddleYPosition() {
-    int expected = 20;
+    int expected = PADDLE_INIT_Y_POS;
     int actual = sut.getYPos();
     
     assertEquals(expected, actual);
@@ -94,7 +100,7 @@ public class PaddleTest {
   @Test void paddlePositionShouldNotChangeWhenKeyIsNotPressed() {
     sut.move();
 
-    int expected = 325;
+    int expected = PADDLE_INIT_X_POS;
     int actual = sut.getXPos();
 
     assertEquals(expected, actual);
@@ -107,7 +113,7 @@ public class PaddleTest {
     sut.onKeyPress(mockEvent);
     sut.move();
 
-    int expected = 324;
+    int expected = PADDLE_INIT_X_POS - 1;
     int actual = sut.getXPos();
 
     assertEquals(expected, actual);
@@ -120,7 +126,7 @@ public class PaddleTest {
     sut.onKeyPress(mockEvent);
     sut.move();
 
-    int expected = 326;
+    int expected = PADDLE_INIT_X_POS + 1;
     int actual = sut.getXPos();
 
     assertEquals(expected, actual);
@@ -130,12 +136,12 @@ public class PaddleTest {
     KeyEvent mockEvent = mock(KeyEvent.class);
     when(mockEvent.getKeyCode()).thenReturn(KeyEvent.VK_RIGHT);
 
-    for (int i = 0; i < 500; i++) {
+    for (int i = 0; i < PADDLE_INIT_X_POS + 200; i++) {
       sut.onKeyPress(mockEvent);
       sut.move();
     }
 
-    int expected = 650;
+    int expected = FRAME_WIDTH - PADDLE_WIDTH;
     int actual = sut.getXPos();
 
     assertEquals(expected, actual);
@@ -145,7 +151,7 @@ public class PaddleTest {
     KeyEvent mockEvent = mock(KeyEvent.class);
     when(mockEvent.getKeyCode()).thenReturn(KeyEvent.VK_LEFT);
 
-    for (int i = 0; i < 500; i++) {
+    for (int i = 0; i < PADDLE_INIT_X_POS + 200; i++) {
       sut.onKeyPress(mockEvent);
       sut.move();
     }
@@ -158,7 +164,7 @@ public class PaddleTest {
 
   @Test void paddleShouldResetToInitialWhenMethodCalled() {
     sut.reset();
-    int[] expected = {325, 20, 0};
+    int[] expected = {PADDLE_INIT_X_POS, PADDLE_INIT_Y_POS, 0};
     int[] actual = {sut.getXPos(), sut.getYPos(), sut.getXDirection()};
     assertArrayEquals(expected, actual);
   }
