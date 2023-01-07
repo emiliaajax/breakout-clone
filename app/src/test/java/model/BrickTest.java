@@ -16,29 +16,29 @@ public class BrickTest {
     assertDoesNotThrow(() -> new Brick());
   }
 
-  @Test void shouldReturnBrickWidthOfThirty() {
-    int expected = 30;
+  @Test void shouldReturnBrickWidth() {
+    int expected = 80;
     int actual = sut.getWidth();
     
     assertEquals(expected, actual);
   }
 
-  @Test void shouldReturnBrickHeightOfTwenty() {
-    int expected = 20;
+  @Test void shouldReturnBrickHeight() {
+    int expected = 40;
     int actual = sut.getHeight();
     
     assertEquals(expected, actual);
   }
 
   @Test void shouldReturnZeroAsInitialXPos() {
-    int expected = 0;
+    int expected = 360;
     int actual = sut.getXPos();
     
     assertEquals(expected, actual);
   }
 
   @Test void shouldReturnZeroAsInitialYPos() {
-    int expected = 0;
+    int expected = 100;
     int actual = sut.getYPos();
     
     assertEquals(expected, actual);
