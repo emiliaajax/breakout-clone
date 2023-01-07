@@ -61,6 +61,10 @@ public class Paddle {
     if (isLeftArrowKey(event)) {
       stopMoving();
     }
+
+    if (isRightArrowKey(event)) {
+      stopMoving();
+    }
   }
 
   public void reset() {
