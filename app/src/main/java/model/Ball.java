@@ -11,12 +11,12 @@ public class Ball {
   private int y;
 
   public Ball () {
-    width = 10;
-    height = 10;
+    width = 20;
+    height = 20;
     xDir = 1;
     yDir = -1;
-    x = 50;
-    y = 50;
+    x = 390;
+    y = 450;
   }
 
   public int getWidth() {
@@ -82,8 +82,8 @@ public class Ball {
   }
 
   private void resetPosition() {
-    x = 50;
-    y = 50;
+    x = 390;
+    y = 450;
   }
 
   private void resetDirection() {
