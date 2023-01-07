@@ -14,7 +14,7 @@ public class PaddleTest {
   private static final int PADDLE_WIDTH = 150;
   private static final int PADDLE_HEIGHT = 20;
   private static final int PADDLE_INIT_X_POS = 325;
-  private static final int PADDLE_INIT_Y_POS = 20;
+  private static final int PADDLE_INIT_Y_POS = 520;
 
   private Paddle sut;
 
@@ -93,7 +93,7 @@ public class PaddleTest {
 
     sut.onKeyPress(mockEvent);
 
-    int expected = -1;
+    int expected = -2;
     int actual = sut.getXDirection();
 
     assertEquals(expected, actual);
@@ -105,7 +105,7 @@ public class PaddleTest {
 
     sut.onKeyPress(mockEvent);
 
-    int expected = 1;
+    int expected = 2;
     int actual = sut.getXDirection();
 
     assertEquals(expected, actual);
