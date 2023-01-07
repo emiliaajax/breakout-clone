@@ -60,13 +60,12 @@ public class GameTest {
 	}
 
 	@Test void checkCollision_collisionBetweenBallAndPaddle() {
-		when(mockBall.getYPos()).thenReturn(520);
+		when(mockBall.getYPos()).thenReturn(500);
+		when(mockPaddle.getYPos()).thenReturn(520);
+		when(mockBall.getHeight()).thenReturn(20);
 
 		sut.checkCollision();
 
-		int expected = -1;
-		int actual = mockBall.getYPos();
-
-		assertEquals(expected, actual);
+		verify(mockBall).changeYDir();
 	}
 }
