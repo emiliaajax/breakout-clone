@@ -11,8 +11,11 @@ import org.junit.jupiter.api.Test;
 import model.Paddle;
 
 public class GameUITest {
+  private static final int X_POS = 30;
+  private static final int Y_POS = 30;
   private static final int WIDTH = 800;
   private static final int HEIGHT = 600;
+  private static final String TITLE = "Breakout";
 
   private JFrame mockFrame;
   private GamePanel mockGamePanel;
@@ -31,8 +34,8 @@ public class GameUITest {
   }
 
   @Test void testInitUI_createsFrame() {
-    verify(mockFrame).setBounds(30, 30, 800, 600);
-    verify(mockFrame).setTitle("Breakout");
+    verify(mockFrame).setBounds(X_POS, Y_POS, WIDTH, HEIGHT);
+    verify(mockFrame).setTitle(TITLE);
     verify(mockFrame).setResizable(false);
     verify(mockFrame).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   }
