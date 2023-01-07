@@ -64,7 +64,20 @@ public class GameTest {
 		when(mockPaddle.getYPos()).thenReturn(520);
 		when(mockBall.getHeight()).thenReturn(20);
 
+		when(mockBall.getXPos()).thenReturn(200);
+		when(mockBall.getWidth()).thenReturn(20);
+		when(mockPaddle.getXPos()).thenReturn(200);
+		when(mockPaddle.getWidth()).thenReturn(150);
+
 		sut.checkCollision();
+
+		verify(mockBall).getYPos();
+		verify(mockPaddle).getYPos();
+		verify(mockBall).getHeight();
+		verify(mockBall).getXPos();
+		verify(mockBall).getWidth();
+		verify(mockPaddle).getXPos();
+		verify(mockPaddle).getWidth();
 
 		verify(mockBall).changeYDir();
 	}
