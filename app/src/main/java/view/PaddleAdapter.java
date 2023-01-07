@@ -12,6 +12,7 @@ public class PaddleAdapter extends KeyAdapter {
     this.paddle = paddle;
   }
 
+  @Override
   public void keyPressed(KeyEvent event) {
     paddle.onKeyPress(event);
   }
