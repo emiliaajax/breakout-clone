@@ -98,11 +98,11 @@ public class Paddle {
   }
 
   void moveLeft() {
-    xDir = -2;
+    xDir = -5;
   }
 
   void moveRight() {
-    xDir = 2;
+    xDir = 5;
   }
 
   private boolean isLeftArrowKey(KeyEvent event) {

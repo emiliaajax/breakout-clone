@@ -93,7 +93,7 @@ public class PaddleTest {
 
     sut.onKeyPress(mockEvent);
 
-    int expected = -2;
+    int expected = -5;
     int actual = sut.getXDirection();
 
     assertEquals(expected, actual);
@@ -105,7 +105,7 @@ public class PaddleTest {
 
     sut.onKeyPress(mockEvent);
 
-    int expected = 2;
+    int expected = 5;
     int actual = sut.getXDirection();
 
     assertEquals(expected, actual);
@@ -127,7 +127,7 @@ public class PaddleTest {
     sut.onKeyPress(mockEvent);
     sut.move();
 
-    int expected = PADDLE_INIT_X_POS - 2;
+    int expected = PADDLE_INIT_X_POS - 5;
     int actual = sut.getXPos();
 
     assertEquals(expected, actual);
@@ -140,7 +140,7 @@ public class PaddleTest {
     sut.onKeyPress(mockEvent);
     sut.move();
 
-    int expected = PADDLE_INIT_X_POS + 2;
+    int expected = PADDLE_INIT_X_POS + 5;
     int actual = sut.getXPos();
 
     assertEquals(expected, actual);
