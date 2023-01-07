@@ -58,11 +58,7 @@ public class Paddle {
   }
 
   public void onKeyRelease(KeyEvent event) {
-    if (isLeftArrowKey(event)) {
-      stopMoving();
-    }
-
-    if (isRightArrowKey(event)) {
+    if (isLeftArrowKey(event) || isRightArrowKey(event)) {
       stopMoving();
     }
   }
