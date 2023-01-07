@@ -20,17 +20,19 @@ public class GameUITest {
   private JFrame mockFrame;
   private GamePanel mockGamePanel;
   private Paddle mockPaddle;
+  private PaddleAdapter mockPaddleAdapter;
 
   @BeforeEach void setUp() {
     mockFrame = mock(JFrame.class);
     mockGamePanel = mock(GamePanel.class);
     mockPaddle = mock(Paddle.class);
+    mockPaddleAdapter = mock(PaddleAdapter.class);
 
     new GameUI(mockFrame, WIDTH, HEIGHT, mockPaddle, mockGamePanel);
   }
 
   @Test void constructor() {
-    assertDoesNotThrow(() -> new GameUI(mockFrame, WIDTH, HEIGHT, mockPaddle, mockGamePanel));
+    assertDoesNotThrow(() -> new GameUI(mockFrame, WIDTH, HEIGHT, mockPaddle, mockPaddleAdapter, mockGamePanel));
   }
 
   @Test void testInitUI_createsFrame() {
@@ -38,6 +40,10 @@ public class GameUITest {
     verify(mockFrame).setTitle(TITLE);
     verify(mockFrame).setResizable(false);
     verify(mockFrame).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  }
+
+  @Test void testInitUI_addKeyListenerToFrame() {
+    verify(mockFrame).addKeyListener(null);
   }
 
   @Test void testInitUI_addPanelToFrame() {
