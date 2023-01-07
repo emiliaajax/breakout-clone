@@ -17,14 +17,14 @@ public class BallTest {
   }
 
   @Test void shouldReturnBallWidthOfTen() {
-    int expected = 10;
+    int expected = 20;
     int actual = sut.getWidth();
     
     assertEquals(expected, actual);
   }
 
   @Test void shouldReturnBallHeightOfTen() {
-    int expected = 10;
+    int expected = 20;
     int actual = sut.getHeight();
     
     assertEquals(expected, actual);
@@ -45,14 +45,14 @@ public class BallTest {
   }
 
   @Test void shouldReturnFiftyForBallXPosition() {
-    int expected = 50;
+    int expected = 390;
     int actual = sut.getXPos();
     
     assertEquals(expected, actual);
   }
 
   @Test void shouldReturnFiftyForBallYPosition() {
-    int expected = 50;
+    int expected = 450;
     int actual = sut.getYPos();
     
     assertEquals(expected, actual);
@@ -60,7 +60,7 @@ public class BallTest {
 
   @Test void ballShouldMoveWhenFunctionIsCalled() {
     sut.move();
-    int[] expected = {51, 49};
+    int[] expected = {391, 449};
     int[] actual = {sut.getXPos(), sut.getYPos()};
     assertArrayEquals(expected, actual);
   }
@@ -80,7 +80,7 @@ public class BallTest {
   }
 
   @Test void ballShouldChangeDirectionWhenHittingTheCeiling() {
-    for (int i = 0; i < 60; i++) {
+    for (int i = 0; i < 460; i++) {
       sut.move();
     }
     int expected = 1;
@@ -108,7 +108,7 @@ public class BallTest {
 
   @Test void ballShouldResetToInitialWhenMethodCalled() {
     sut.reset();
-    int[] expected = {50, 50, 1, -1};
+    int[] expected = {390, 450, 1, -1};
     int[] actual = {sut.getXPos(), sut.getYPos(), sut.getXDirection(), sut.getYDirection()};
     assertArrayEquals(expected, actual);
   }
