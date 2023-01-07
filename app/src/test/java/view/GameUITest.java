@@ -38,6 +38,10 @@ public class GameUITest {
     verify(mockFrame).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   }
 
+  @Test void testInitUI_addKeyListenerToFrame() {
+    verify(mockFrame).addKeyListener(mockPaddleAdapter);
+  }
+
   @Test void testInitUI_addPanelToFrame() {
     verify(mockFrame).add(mockGamePanel);
   }
