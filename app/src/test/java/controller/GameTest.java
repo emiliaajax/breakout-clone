@@ -12,11 +12,15 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import static org.mockito.Mockito.*;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class GameTest {
 	private Ball mockBall;
 	private Brick mockBrick;
 	private Paddle mockPaddle;
 	private GameUI mockGameUI;
+	private Timer mockTimer;
 	private Game sut;
 
 	@BeforeEach void setUp() {
@@ -24,12 +28,13 @@ public class GameTest {
 		mockBrick = mock(Brick.class);
 		mockPaddle = mock(Paddle.class);
 		mockGameUI = mock(GameUI.class);
+		mockTimer = mock(Timer.class);
 
 		sut = new Game(mockBall, mockBrick, mockPaddle, mockGameUI);
 	}
 
   @Test void constructor() {
-		assertDoesNotThrow(() -> new Game(mockBall, mockBrick, mockPaddle, mockGameUI));
+		assertDoesNotThrow(() -> new Game(mockBall, mockBrick, mockPaddle, mockGameUI, mockTimer));
 	}
 
 	@Test void testStart() {
