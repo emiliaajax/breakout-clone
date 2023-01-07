@@ -31,7 +31,14 @@ public class Game {
         ball.move();
         paddle.move();
         gameUI.repaint();
+        checkCollision();
       }
     }, 0, 10);
+  }
+
+  void checkCollision() {
+    if (ball.getYPos() == paddle.getYPos() - ball.getHeight()) {
+      ball.changeYDir();
+    }
   }
 }
