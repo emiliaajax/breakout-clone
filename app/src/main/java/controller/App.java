@@ -29,5 +29,8 @@ public class App {
 
     GamePanel gamePanel = new GamePanel(ballView, brickView, paddleView);
     GameUI gameUI = new GameUI(frame, FrameCommons.WIDTH, FrameCommons.HEIGHT, gamePanel);
+
+    Game game = new Game(ball, brick, paddle, gameUI);
+    game.start();
   }
 }

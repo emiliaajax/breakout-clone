@@ -21,6 +21,7 @@ public class Game {
   public void start() {
     ball.move();
     paddle.move();
+
     gameUI.repaint();
   }
 }
