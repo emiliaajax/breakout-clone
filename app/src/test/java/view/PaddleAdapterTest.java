@@ -30,4 +30,10 @@ public class PaddleAdapterTest {
 
     verify(mockPaddle).onKeyPress(mockEvent);
   }
+
+  @Test void testKeyReleased() {
+    sut.keyReleased(mockEvent);
+
+    verify(mockPaddle).onKeyRelease(mockEvent);
+  }
 }
