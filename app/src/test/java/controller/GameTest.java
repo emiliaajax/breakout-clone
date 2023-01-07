@@ -1,6 +1,7 @@
 package controller;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 
 import model.Ball;
 import model.Brick;
@@ -37,8 +38,14 @@ public class GameTest {
 		assertDoesNotThrow(() -> new Game(mockBall, mockBrick, mockPaddle, mockGameUI, mockTimer));
 	}
 
-	@Test void testStart() {
+	@Test void testStart() throws InterruptedException {
 		sut.start();
+
+		ArgumentCaptor<TimerTask> timerTaskCaptor = ArgumentCaptor.forClass(TimerTask.class);
+
+		verify(mockTimer).scheduleAtFixedRate(timerTaskCaptor.capture(), eq(0L), eq(10L));
+		TimerTask timerTask = timerTaskCaptor.getValue();
+		timerTask.run();
 
 		verify(mockBall).move();
 		verify(mockPaddle).move();

@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.Timer;
+import java.util.TimerTask;
 
 import model.Ball;
 import model.Brick;
@@ -24,9 +25,13 @@ public class Game {
   }
 
   public void start() {
-    ball.move();
-    paddle.move();
-
-    gameUI.repaint();
+    timer.scheduleAtFixedRate(new TimerTask() {
+      @Override
+      public void run() {
+        ball.move();
+        paddle.move();
+        gameUI.repaint();
+      }
+    }, 0, 10);
   }
 }
