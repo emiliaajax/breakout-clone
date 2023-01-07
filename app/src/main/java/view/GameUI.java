@@ -25,6 +25,7 @@ public class GameUI {
 
   private void initUI() {
     createFrame();
+    frame.addKeyListener(paddleAdapter);
     frame.add(gamePanel);
     frame.setVisible(true);
   }
