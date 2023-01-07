@@ -6,15 +6,15 @@ public class GameUI {
   private JFrame frame;
   private int width;
   private int height;
-  private GamePanel gamePanel;
   private PaddleAdapter paddleAdapter;
+  private GamePanel gamePanel;
 
   public GameUI(JFrame frame, int width, int height, PaddleAdapter paddleAdapter, GamePanel gamePanel) {
     this.frame = frame;
     this.width = width;
     this.height = height;
-    this.gamePanel = gamePanel;
     this.paddleAdapter = paddleAdapter;
+    this.gamePanel = gamePanel;
 
     initUI();
   }
