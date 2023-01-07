@@ -37,7 +37,7 @@ public class Game {
   }
 
   void checkCollision() {
-    if (ball.getYPos() == paddle.getYPos() - ball.getHeight()) {
+    if (ball.getYPos() == paddle.getYPos() - ball.getHeight() && ball.getXPos() >= paddle.getXPos() && ball.getXPos() <= paddle.getXPos() + paddle.getWidth()) {
       ball.changeYDir();
     }
   }

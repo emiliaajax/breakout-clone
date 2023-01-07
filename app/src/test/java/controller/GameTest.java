@@ -74,9 +74,8 @@ public class GameTest {
 		verify(mockBall).getYPos();
 		verify(mockPaddle).getYPos();
 		verify(mockBall).getHeight();
-		verify(mockBall).getXPos();
-		verify(mockBall).getWidth();
-		verify(mockPaddle).getXPos();
+		verify(mockBall, times(2)).getXPos();
+		verify(mockPaddle, times(2)).getXPos();
 		verify(mockPaddle).getWidth();
 
 		verify(mockBall).changeYDir();
