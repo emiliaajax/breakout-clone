@@ -56,6 +56,14 @@ public class BrickTest {
     assertEquals(expected, actual);
   }
 
+  @Test void shouldReturnFiftyAsNewYPosWhenInputIsFifty() {
+    int expected = 50;
+    sut.setYPos(50);
+    int actual = sut.getYPos();
+
+    assertEquals(expected, actual);
+  }
+
   @Test void brickDestroyedShouldBeFalseWhenInitalized () {
     boolean expected = false;
     boolean actual = sut.isDestroyed();
