@@ -17,6 +17,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameTest {
+	private static final int PADDLE_Y_POS = 520;
+	private static final int BALL_HEIGHT = 20;
+	private static final int BALL_WIDTH = 20;
+	private static final int PADDLE_WIDTH = 150;
+	private static final int PADDLE_X_POS_TEST = 200;
+
 	private Ball mockBall;
 	private Brick mockBrick;
 	private Paddle mockPaddle;
@@ -60,14 +66,14 @@ public class GameTest {
 	}
 
 	@Test void checkCollision_betweenBallAndPaddle() {
-		when(mockBall.getYPos()).thenReturn(500);
-		when(mockPaddle.getYPos()).thenReturn(520);
-		when(mockBall.getHeight()).thenReturn(20);
+		when(mockBall.getYPos()).thenReturn(PADDLE_Y_POS - BALL_HEIGHT);
+		when(mockPaddle.getYPos()).thenReturn(PADDLE_Y_POS);
+		when(mockBall.getHeight()).thenReturn(BALL_HEIGHT);
 
-		when(mockBall.getXPos()).thenReturn(200);
-		when(mockBall.getWidth()).thenReturn(20);
-		when(mockPaddle.getXPos()).thenReturn(200);
-		when(mockPaddle.getWidth()).thenReturn(150);
+		when(mockBall.getXPos()).thenReturn(PADDLE_X_POS_TEST + PADDLE_WIDTH / 2);
+		when(mockBall.getWidth()).thenReturn(BALL_WIDTH);
+		when(mockPaddle.getXPos()).thenReturn(PADDLE_X_POS_TEST);
+		when(mockPaddle.getWidth()).thenReturn(PADDLE_WIDTH);
 
 		sut.checkCollision();
 
