@@ -85,11 +85,11 @@ public class Paddle {
     xPos += xDir;
   }
 
-  private void moveLeft() {
+  void moveLeft() {
     xDir = -1;
   }
 
-  private void moveRight() {
+  void moveRight() {
     xDir = 1;
   }
 

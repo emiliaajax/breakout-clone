@@ -65,6 +65,20 @@ public class PaddleTest {
     KeyEvent mockEvent = mock(KeyEvent.class);
     when(mockEvent.getKeyCode()).thenReturn(KeyEvent.VK_LEFT);
 
+    sut.moveLeft();
+    sut.onKeyRelease(mockEvent);
+
+    int expected = 0;
+    int actual = sut.getXDirection();
+
+    assertEquals(expected, actual);
+  }
+
+  @Test void testOnKeyRelease_rightKey() {
+    KeyEvent mockEvent = mock(KeyEvent.class);
+    when(mockEvent.getKeyCode()).thenReturn(KeyEvent.VK_RIGHT);
+
+    sut.moveRight();
     sut.onKeyRelease(mockEvent);
 
     int expected = 0;
