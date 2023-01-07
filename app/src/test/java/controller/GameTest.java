@@ -96,7 +96,7 @@ public class GameTest {
 
 		verify(mockBall.getYPos());
 		verify(mockBrick.getYPos());
-		verify(mockBrick.getWidth());
+		verify(mockBall.getHeight());
 
 		verify(mockBall).changeYDir();
 	}
