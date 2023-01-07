@@ -7,7 +7,7 @@ import model.Paddle;
 public class PaddleAdapter extends KeyAdapter {
   private Paddle paddle;
 
-  public PaddleAdapter (Paddle paddle) {
+  public PaddleAdapter(Paddle paddle) {
     this.paddle = paddle;
   }
 }
