@@ -12,6 +12,7 @@ public class Brick {
 		height = 40;
 		xPos = 360;
 		yPos = 100;
+
 		destroyed = false;
 	}
 
