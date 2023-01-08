@@ -9,6 +9,7 @@ import java.awt.Graphics;
 
 public class GamePanelTest {
   private BallView mockBallView;
+  private BrickView[] mockBrickViews;
   private BrickView mockBrickView;
   private PaddleView mockPaddleView;
   private Graphics mockGraphics;
@@ -20,18 +21,23 @@ public class GamePanelTest {
     mockPaddleView = mock(PaddleView.class);
     mockGraphics = mock(Graphics.class);
 
-    sut = new GamePanel(mockBallView, mockBrickView, mockPaddleView);
+    BrickView[] brickViews = new BrickView[10];
+    for (int i = 0; i < brickViews.length; i++) {
+      mockBrickViews[i] = mock(BrickView.class);
+    }
+
+    sut = new GamePanel(mockBallView, mockBrickViews, mockPaddleView);
   }
 
   @Test void constructor() {
-    assertDoesNotThrow(() -> new GamePanel(mockBallView, mockBrickView, mockPaddleView));
+    assertDoesNotThrow(() -> new GamePanel(mockBallView, mockBrickViews, mockPaddleView));
   }
 
   @Test void verifyThatComponentsArePainted() {
     sut.paintComponent(mockGraphics);
 
     verify(mockBallView).paint(mockGraphics);
-    verify(mockBrickView).paint(mockGraphics);
+    verify(mockBrickView, times(mockBrickViews.length)).paint(mockGraphics);
     verify(mockPaddleView).paint(mockGraphics);
   }
 }
