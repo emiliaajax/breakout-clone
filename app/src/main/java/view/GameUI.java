@@ -3,6 +3,9 @@ package view;
 import javax.swing.JFrame;
 
 public class GameUI {
+  private static final int X_POS = 30;
+  private static final int Y_POS = 30;
+
   private JFrame frame;
   private int width;
   private int height;
@@ -31,7 +34,7 @@ public class GameUI {
   }
 
   private void createFrame() {
-    frame.setBounds(30, 30, width, height);
+    frame.setBounds(X_POS, Y_POS, width, height);
     frame.setTitle("Breakout");
     frame.setResizable(false);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
