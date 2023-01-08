@@ -37,12 +37,23 @@ public class Game {
   }
 
   void checkCollision() {
+    checkCollisionWithPaddle();
+    checkCollisionWithBrick();
+  }
+
+  private void checkCollisionWithPaddle() {
     if (ball.getYPos() == paddle.getYPos() - ball.getHeight() && ball.getXPos() >= paddle.getXPos() && ball.getXPos() <= paddle.getXPos() + paddle.getWidth()) {
       ball.changeYDir();
     }
+  }
 
-    if (ball.getYPos() == brick.getYPos() - ball.getHeight() && ball.getXPos() >= brick.getXPos() && ball.getXPos() <= brick.getXPos() + brick.getWidth()) {
+  private void checkCollisionWithBrick() {
+    if (isCollidingOnTopOfBrick()) {
       ball.changeYDir();
     }
+  }
+
+  private boolean isCollidingOnTopOfBrick() {
+    return ball.getYPos() == brick.getYPos() - ball.getHeight() && ball.getXPos() >= brick.getXPos() && ball.getXPos() <= brick.getXPos() + brick.getWidth();
   }
 }

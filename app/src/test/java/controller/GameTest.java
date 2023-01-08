@@ -22,6 +22,9 @@ public class GameTest {
 	private static final int BALL_WIDTH = 20;
 	private static final int PADDLE_WIDTH = 150;
 	private static final int PADDLE_X_POS_TEST = 200;
+	private static final int BRICK_Y_POS = 100;
+	private static final int BRICK_WIDTH = 80;
+	private static final int BRICK_X_POS_TEST = 360;
 
 	private Ball mockBall;
 	private Brick mockBrick;
@@ -89,13 +92,13 @@ public class GameTest {
 	}
 
 	@Test void checkCollision_betweenBallAndBrick_fromTop() {
-		when(mockBall.getYPos()).thenReturn(80);
-		when(mockBrick.getYPos()).thenReturn(100);
-		when(mockBall.getHeight()).thenReturn(20);
+		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS - BALL_HEIGHT);
+		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
+		when(mockBall.getHeight()).thenReturn(BALL_HEIGHT);
 
-		when(mockBrick.getWidth()).thenReturn(80);
-		when(mockBrick.getXPos()).thenReturn(360);
-		when(mockBall.getXPos()).thenReturn(400);
+		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
+		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
+		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST + BRICK_WIDTH / 2);
 		
 		sut.checkCollision();
 
