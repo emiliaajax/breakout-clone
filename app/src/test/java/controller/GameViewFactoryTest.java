@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import model.Ball;
+import model.Paddle;
 
 public class GameViewFactoryTest {
   private GameViewFactory sut;
@@ -23,5 +24,11 @@ public class GameViewFactoryTest {
     Ball mockBall = mock(Ball.class);
 
     assertNotNull(sut.createBallView(mockBall));
+  }
+
+  @Test void testCreatePaddleView() {
+    Paddle mockPaddle = mock(Paddle.class);
+
+    assertNotNull(sut.createPaddleView(mockPaddle));
   }
 }
