@@ -52,7 +52,7 @@ public class Game {
       ball.changeYDir();
     }
 
-    if (isCollidingWithLeftSideOfBrick()) {
+    if (isCollidingWithLeftSideOfBrick() || (ball.getXPos() == brick.getXPos() + brick.getWidth() && isWithinBrickHeight())) {
       ball.changeXDir();
     }
   }

@@ -85,7 +85,7 @@ public class GameTest {
 		verify(mockPaddle).getYPos();
 		verify(mockBall, times(2)).getHeight();
 
-		verify(mockBall, times(3)).getXPos();
+		verify(mockBall, times(4)).getXPos();
 		verify(mockPaddle, times(2)).getXPos();
 		verify(mockPaddle).getWidth();
 
@@ -107,9 +107,9 @@ public class GameTest {
 		verify(mockBrick, times(1)).getYPos();
 		verify(mockBall, times(2)).getHeight();
 
-		verify(mockBrick, times(3)).getXPos();
-		verify(mockBall, times(3)).getXPos();
-		verify(mockBrick).getWidth();
+		verify(mockBrick, times(4)).getXPos();
+		verify(mockBall, times(4)).getXPos();
+		verify(mockBrick, times(2)).getWidth();
 
 		verify(mockBall).changeYDir();
 	}
@@ -129,9 +129,9 @@ public class GameTest {
 		verify(mockBrick, times(2)).getYPos();
 		verify(mockBrick, times(1)).getHeight();
 
-		verify(mockBrick, times(3)).getXPos();
-		verify(mockBall, times(3)).getXPos();
-		verify(mockBrick).getWidth();
+		verify(mockBrick, times(4)).getXPos();
+		verify(mockBall, times(4)).getXPos();
+		verify(mockBrick, times(2)).getWidth();
 
 		verify(mockBall).changeYDir();
 	}
@@ -161,7 +161,7 @@ public class GameTest {
 	@Test void checkCollision_betweenBallAndBrick_fromLeft() {
 		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST + BRICK_WIDTH);
 		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
-		when(mockBrick.getWidth()).thenReturn(BALL_WIDTH);
+		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
 
 		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
 		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS + BRICK_HEIGHT / 2);
