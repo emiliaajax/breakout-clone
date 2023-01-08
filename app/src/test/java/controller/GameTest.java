@@ -25,6 +25,7 @@ public class GameTest {
 	private static final int BRICK_Y_POS = 100;
 	private static final int BRICK_WIDTH = 80;
 	private static final int BRICK_X_POS_TEST = 360;
+	private static final int BRICK_HEIGHT = 40;
 
 	private Ball mockBall;
 	private Brick mockBrick;
@@ -105,6 +106,27 @@ public class GameTest {
 		verify(mockBall, times(2)).getYPos();
 		verify(mockBrick).getYPos();
 		verify(mockBall, times(2)).getHeight();
+
+		verify(mockBrick, times(2)).getXPos();
+		verify(mockBall, times(2)).getXPos();
+		verify(mockBrick).getWidth();
+
+		verify(mockBall).changeYDir();
+	}
+
+	@Test void checkCollision_betweenBallAndBrick_fromBottom() {
+		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS + BRICK_HEIGHT);
+		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS + BRICK_HEIGHT);
+
+		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
+		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
+		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST + BRICK_WIDTH / 2);
+		
+		sut.checkCollision();
+
+		verify(mockBall, times(2)).getYPos();
+		verify(mockBrick).getYPos();
+		verify(mockBrick, times(2)).getHeight();
 
 		verify(mockBrick, times(2)).getXPos();
 		verify(mockBall, times(2)).getXPos();
