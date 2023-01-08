@@ -17,6 +17,7 @@ public class BrickViewTest {
   @BeforeEach void setUp() {
     mockBrick = mock(Brick.class);
     graphics = mock(Graphics.class);
+
     sut = new BrickView(mockBrick);
   }
 
