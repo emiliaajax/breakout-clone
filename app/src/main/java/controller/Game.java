@@ -50,10 +50,12 @@ public class Game {
   private void checkCollisionWithBrick() {
     if (isCollidingOnTopOfBrick() || isCollidingWithBottomOfBrick()) {
       ball.changeYDir();
+      brick.destroy();
     }
 
     if (isCollidingWithLeftSideOfBrick() || isCollidingWithRightSideOfBrick()) {
       ball.changeXDir();
+      brick.destroy();
     }
   }
 
