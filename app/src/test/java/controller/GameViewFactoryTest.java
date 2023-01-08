@@ -16,6 +16,7 @@ public class GameViewFactoryTest {
   @BeforeEach void setUp() {
     sut = new GameViewFactory();
   }
+
   @Test void constructor() {
     assertDoesNotThrow(() -> new GameViewFactory());
   }
