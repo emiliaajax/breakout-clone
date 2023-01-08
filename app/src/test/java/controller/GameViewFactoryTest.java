@@ -36,7 +36,11 @@ public class GameViewFactoryTest {
   }
 
   @Test void testCreateBrickViews() {
-    Brick[] mockBricks = mock(Brick[].class);
+    Brick[] mockBricks = new Brick[10];
+
+    for (int i = 0; i < mockBricks.length; i++) {
+      mockBricks[i] = mock(Brick.class);
+    }
 
     assertEquals(sut.createBrickViews(mockBricks).length, mockBricks.length);
   }
