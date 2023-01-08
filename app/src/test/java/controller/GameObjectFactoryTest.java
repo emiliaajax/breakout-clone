@@ -1,6 +1,7 @@
 package controller;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -26,6 +27,6 @@ public class GameObjectFactoryTest {
   }
 
   @Test void testCreateBricks() {
-    assertEquals(sut.createBricks(10).size(), 10);
+    assertEquals(sut.createBricks(10).length, 10);
   }
 }
