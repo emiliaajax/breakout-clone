@@ -28,6 +28,7 @@ public class GameTest {
 	private static final int BRICK_HEIGHT = 40;
 
 	private Ball mockBall;
+	private Brick[] mockBricks;
 	private Brick mockBrick;
 	private Paddle mockPaddle;
 	private GameUI mockGameUI;
@@ -36,16 +37,23 @@ public class GameTest {
 
 	@BeforeEach void setUp() {
 		mockBall = mock(Ball.class);
-		mockBrick = mock(Brick.class);
 		mockPaddle = mock(Paddle.class);
 		mockGameUI = mock(GameUI.class);
 		mockTimer = mock(Timer.class);
 
-		sut = new Game(mockBall, mockBrick, mockPaddle, mockGameUI, mockTimer);
+		Brick[] mockBricks = new Brick[10];
+
+		for (int i = 0; i < mockBricks.length; i++) {
+			mockBricks[i] = mock(Brick.class);
+		}
+
+		mockBrick = mockBricks[0];
+
+		sut = new Game(mockBall, mockBricks, mockPaddle, mockGameUI, mockTimer);
 	}
 
   @Test void constructor() {
-		assertDoesNotThrow(() -> new Game(mockBall, mockBrick, mockPaddle, mockGameUI, mockTimer));
+		assertDoesNotThrow(() -> new Game(mockBall, mockBricks, mockPaddle, mockGameUI, mockTimer));
 	}
 
 	@Test void testStart() throws InterruptedException {
