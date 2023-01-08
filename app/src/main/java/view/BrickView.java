@@ -16,6 +16,8 @@ public class BrickView {
     if (!brick.isDestroyed()) {
       graphics.setColor(Color.GREEN);
       graphics.fillRect(brick.getXPos(), brick.getYPos(), brick.getWidth(), brick.getHeight());
+      graphics.setColor(Color.BLACK);
+      graphics.drawRect(brick.getXPos(), brick.getYPos(), brick.getWidth(), brick.getHeight());
     }
   }
 }
