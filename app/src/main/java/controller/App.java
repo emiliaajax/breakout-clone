@@ -31,10 +31,10 @@ public class App {
     BrickView brickView = new BrickView(brick);
     PaddleView paddleView = new PaddleView(paddle);
 
-    GamePanel gamePanel = new GamePanel(ballView, brickView, paddleView);
-    PaddleAdapter paddleAdapter = new PaddleAdapter(paddle);
+    // GamePanel gamePanel = new GamePanel(ballView, brickView, paddleView);
+    // PaddleAdapter paddleAdapter = new PaddleAdapter(paddle);
 
-    GameUI gameUI = new GameUI(frame, FrameCommons.WIDTH, FrameCommons.HEIGHT, paddleAdapter, gamePanel);
+    // GameUI gameUI = new GameUI(frame, FrameCommons.WIDTH, FrameCommons.HEIGHT, paddleAdapter, gamePanel);
 
     // Game game = new Game(ball, brick, paddle, gameUI, timer);
     // game.start();

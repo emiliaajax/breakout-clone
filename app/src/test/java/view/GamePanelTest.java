@@ -21,10 +21,11 @@ public class GamePanelTest {
     mockPaddleView = mock(PaddleView.class);
     mockGraphics = mock(Graphics.class);
 
-    BrickView[] brickViews = new BrickView[10];
-    for (int i = 0; i < brickViews.length; i++) {
+    mockBrickViews = new BrickView[10];
+    for (int i = 0; i < mockBrickViews.length; i++) {
       mockBrickViews[i] = mock(BrickView.class);
     }
+    mockBrickView = mockBrickViews[0];
 
     sut = new GamePanel(mockBallView, mockBrickViews, mockPaddleView);
   }
@@ -37,7 +38,7 @@ public class GamePanelTest {
     sut.paintComponent(mockGraphics);
 
     verify(mockBallView).paint(mockGraphics);
-    verify(mockBrickView, times(mockBrickViews.length)).paint(mockGraphics);
+    verify(mockBrickView).paint(mockGraphics);
     verify(mockPaddleView).paint(mockGraphics);
   }
 }

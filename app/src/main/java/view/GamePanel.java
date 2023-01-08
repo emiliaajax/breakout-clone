@@ -6,18 +6,20 @@ import javax.swing.JPanel;
 
 public class GamePanel extends JPanel {
   private BallView ballView;
-  private BrickView brickView;
+  private BrickView[] brickViews;
   private PaddleView paddleView;
 
-  public GamePanel(BallView ballView, BrickView brickView, PaddleView paddleView) {
+  public GamePanel(BallView ballView, BrickView[] brickViews, PaddleView paddleView) {
     this.ballView = ballView;
-    this.brickView = brickView;
+    this.brickViews = brickViews;
     this.paddleView = paddleView;
   }
 
   @Override public void paintComponent(Graphics graphics) {
     ballView.paint(graphics);
-    brickView.paint(graphics);
+    for (int i = 0; i < brickViews.length; i++) {
+      brickViews[i].paint(graphics);
+    }
     paddleView.paint(graphics);
   }
 }
