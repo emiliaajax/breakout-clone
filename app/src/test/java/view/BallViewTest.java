@@ -23,7 +23,7 @@ public class BallViewTest {
   }
 
   @Test void constructor() {
-    assertDoesNotThrow(() -> sut);
+    assertDoesNotThrow(() -> new BallView(mockBall));
   }
   
   @Test void verifyThatBallIsPainted() {
