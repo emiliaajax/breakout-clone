@@ -29,9 +29,23 @@ public class BrickViewTest {
     when(mockBrick.getHeight()).thenReturn(20);
     when(mockBrick.getXPos()).thenReturn(50);
     when(mockBrick.getYPos()).thenReturn(50);
+    when(mockBrick.isDestroyed()).thenReturn(false);
 
     sut.paint(graphics);
 
+    verify(mockBrick).isDestroyed();
     verify(graphics).fillRect(50, 50, 30, 20);
+  }
+
+  @Test void verifyThatBrickIsNotPaintedWhenDestroyed() {
+    when(mockBrick.getWidth()).thenReturn(30);
+    when(mockBrick.getHeight()).thenReturn(20);
+    when(mockBrick.getXPos()).thenReturn(50);
+    when(mockBrick.getYPos()).thenReturn(50);
+    when(mockBrick.isDestroyed()).thenReturn(true);
+
+    sut.paint(graphics);
+
+    verify(graphics, never()).fillRect(50, 50, 30, 20);
   }
 }
