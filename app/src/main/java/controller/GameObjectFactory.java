@@ -8,7 +8,7 @@ public class GameObjectFactory {
     return new Ball();
   }
 
-  public Paddle createPaddle () {
+  public Paddle createPaddle() {
     return new Paddle();
   }
 }
