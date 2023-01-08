@@ -20,4 +20,8 @@ public class GameObjectFactoryTest {
   @Test void testCreateBall() {
     assertNotNull(sut.createBall());
   }
+
+  @Test void testCreatePaddle() {
+    assertNotNull(sut.createPaddle());
+  }
 }
