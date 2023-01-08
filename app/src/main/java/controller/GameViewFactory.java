@@ -18,9 +18,11 @@ public class GameViewFactory {
 
   public BrickView[] createBrickViews(Brick[] bricks) {
     BrickView[] brickViews = new BrickView[bricks.length];
+
     for (int i = 0; i < bricks.length; i++) {
       brickViews[i] = new BrickView(bricks[i]);
     }
+
     return brickViews;
   }
 }
