@@ -112,6 +112,7 @@ public class GameTest {
 		verify(mockBrick, times(2)).getWidth();
 
 		verify(mockBall).changeYDir();
+		verify(mockBrick).destroy();
 	}
 
 	@Test void checkCollision_betweenBallAndBrick_fromBottom() {
@@ -134,6 +135,7 @@ public class GameTest {
 		verify(mockBrick, times(2)).getWidth();
 
 		verify(mockBall).changeYDir();
+		verify(mockBrick).destroy();
 	}
 
 	@Test void checkCollision_betweenBallAndBrick_onLeftSideOfBrick() {
@@ -156,6 +158,7 @@ public class GameTest {
 		verify(mockBrick, times(2)).getHeight();
 
 		verify(mockBall).changeXDir();
+		verify(mockBrick).destroy();
 	}
 
 	@Test void checkCollision_betweenBallAndBrick_onRightSideOfBrick() {
@@ -178,5 +181,6 @@ public class GameTest {
 		verify(mockBrick, times(2)).getHeight();
 
 		verify(mockBall).changeXDir();
+		verify(mockBrick).destroy();
 	}
 }
