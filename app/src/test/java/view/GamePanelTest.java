@@ -25,6 +25,7 @@ public class GamePanelTest {
     for (int i = 0; i < mockBrickViews.length; i++) {
       mockBrickViews[i] = mock(BrickView.class);
     }
+
     mockBrickView = mockBrickViews[0];
 
     sut = new GamePanel(mockBallView, mockBrickViews, mockPaddleView);

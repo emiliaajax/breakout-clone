@@ -17,9 +17,11 @@ public class GamePanel extends JPanel {
 
   @Override public void paintComponent(Graphics graphics) {
     ballView.paint(graphics);
+
     for (int i = 0; i < brickViews.length; i++) {
       brickViews[i].paint(graphics);
     }
+
     paddleView.paint(graphics);
   }
 }
