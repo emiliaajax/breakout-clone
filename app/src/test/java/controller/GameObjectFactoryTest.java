@@ -24,4 +24,8 @@ public class GameObjectFactoryTest {
   @Test void testCreatePaddle() {
     assertNotNull(sut.createPaddle());
   }
+
+  @Test void testCreateBricks() {
+    assertEquals(sut.createBricks(10).size(), 10);
+  }
 }
