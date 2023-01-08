@@ -27,6 +27,8 @@ public class GameObjectFactoryTest {
   }
 
   @Test void testCreateBricks() {
-    assertEquals(sut.createBricks(10).length, 10);
+    int input = 10;
+
+    assertEquals(sut.createBricks(input).length, input);
   }
 }
