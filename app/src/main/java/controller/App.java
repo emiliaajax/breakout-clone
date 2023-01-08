@@ -33,6 +33,7 @@ public class App {
 
     GamePanel gamePanel = new GamePanel(ballView, brickView, paddleView);
     PaddleAdapter paddleAdapter = new PaddleAdapter(paddle);
+
     GameUI gameUI = new GameUI(frame, FrameCommons.WIDTH, FrameCommons.HEIGHT, paddleAdapter, gamePanel);
 
     Game game = new Game(ball, brick, paddle, gameUI, timer);
