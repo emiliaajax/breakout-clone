@@ -85,7 +85,7 @@ public class GameTest {
 		verify(mockPaddle).getYPos();
 		verify(mockBall, times(2)).getHeight();
 
-		verify(mockBall, times(2)).getXPos();
+		verify(mockBall, times(3)).getXPos();
 		verify(mockPaddle, times(2)).getXPos();
 		verify(mockPaddle).getWidth();
 
@@ -107,8 +107,8 @@ public class GameTest {
 		verify(mockBrick, times(1)).getYPos();
 		verify(mockBall, times(2)).getHeight();
 
-		verify(mockBrick, times(2)).getXPos();
-		verify(mockBall, times(2)).getXPos();
+		verify(mockBrick, times(3)).getXPos();
+		verify(mockBall, times(3)).getXPos();
 		verify(mockBrick).getWidth();
 
 		verify(mockBall).changeYDir();
@@ -129,8 +129,8 @@ public class GameTest {
 		verify(mockBrick, times(2)).getYPos();
 		verify(mockBrick, times(1)).getHeight();
 
-		verify(mockBrick, times(2)).getXPos();
-		verify(mockBall, times(2)).getXPos();
+		verify(mockBrick, times(3)).getXPos();
+		verify(mockBall, times(3)).getXPos();
 		verify(mockBrick).getWidth();
 
 		verify(mockBall).changeYDir();
