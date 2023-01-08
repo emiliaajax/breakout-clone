@@ -35,6 +35,7 @@ public class BrickViewTest {
 
     verify(mockBrick).isDestroyed();
     verify(graphics).fillRect(50, 50, 30, 20);
+    verify(graphics).drawRect(50, 50, 30, 20);
   }
 
   @Test void verifyThatBrickIsNotPaintedWhenDestroyed() {
@@ -46,6 +47,7 @@ public class BrickViewTest {
 
     sut.paint(graphics);
 
+    verify(mockBrick).isDestroyed();
     verify(graphics, never()).fillRect(50, 50, 30, 20);
   }
 }

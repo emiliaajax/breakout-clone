@@ -20,23 +20,27 @@ import view.PaddleView;
 
 public class App {
   public static void main(String[] args) {
+    final int NO_OF_BRICKS = 16;
+
     JFrame frame = new JFrame();
     Timer timer = new Timer();
+    GameObjectFactory objectFactory = new GameObjectFactory();
+    GameViewFactory viewFactory = new GameViewFactory();
 
-    Ball ball = new Ball();
-    Brick brick = new Brick();
-    Paddle paddle = new Paddle();
+    Ball ball = objectFactory.createBall();
+    Brick[] bricks = objectFactory.createBricks(NO_OF_BRICKS);
+    Paddle paddle = objectFactory.createPaddle();
 
-    BallView ballView = new BallView(ball);
-    BrickView brickView = new BrickView(brick);
-    PaddleView paddleView = new PaddleView(paddle);
+    BallView ballView = viewFactory.createBallView(ball);
+    BrickView[] brickViews = viewFactory.createBrickViews(bricks);
+    PaddleView paddleView = viewFactory.createPaddleView(paddle);
 
-    // GamePanel gamePanel = new GamePanel(ballView, brickView, paddleView);
-    // PaddleAdapter paddleAdapter = new PaddleAdapter(paddle);
+    GamePanel gamePanel = new GamePanel(ballView, brickViews, paddleView);
+    PaddleAdapter paddleAdapter = new PaddleAdapter(paddle);
 
-    // GameUI gameUI = new GameUI(frame, FrameCommons.WIDTH, FrameCommons.HEIGHT, paddleAdapter, gamePanel);
+    GameUI gameUI = new GameUI(frame, FrameCommons.WIDTH, FrameCommons.HEIGHT, paddleAdapter, gamePanel);
 
-    // Game game = new Game(ball, brick, paddle, gameUI, timer);
-    // game.start();
+    Game game = new Game(ball, bricks, paddle, gameUI, timer);
+    game.start();
   }
 }
