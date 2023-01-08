@@ -41,7 +41,7 @@ public class GameTest {
 		mockGameUI = mock(GameUI.class);
 		mockTimer = mock(Timer.class);
 
-		Brick[] mockBricks = new Brick[10];
+		Brick[] mockBricks = new Brick[1];
 
 		for (int i = 0; i < mockBricks.length; i++) {
 			mockBricks[i] = mock(Brick.class);

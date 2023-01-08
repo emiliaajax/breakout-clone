@@ -36,7 +36,7 @@ public class App {
 
     GameUI gameUI = new GameUI(frame, FrameCommons.WIDTH, FrameCommons.HEIGHT, paddleAdapter, gamePanel);
 
-    Game game = new Game(ball, brick, paddle, gameUI, timer);
-    game.start();
+    // Game game = new Game(ball, brick, paddle, gameUI, timer);
+    // game.start();
   }
 }

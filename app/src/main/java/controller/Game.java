@@ -10,14 +10,15 @@ import view.GameUI;
 
 public class Game {
   private Ball ball;
+  private Brick[] bricks;
   private Brick brick;
   private Paddle paddle;
   private GameUI gameUI;
   private Timer timer;
 
-  public Game(Ball ball, Brick brick, Paddle paddle, GameUI gameUI, Timer timer) {
+  public Game(Ball ball, Brick[] bricks, Paddle paddle, GameUI gameUI, Timer timer) {
     this.ball = ball;
-    this.brick = brick;
+    this.bricks = bricks;
     this.paddle = paddle;
     this.gameUI = gameUI;
 
@@ -48,14 +49,18 @@ public class Game {
   }
 
   private void checkCollisionWithBrick() {
-    if (isCollidingOnTopOfBrick() || isCollidingWithBottomOfBrick()) {
-      ball.changeYDir();
-      brick.destroy();
-    }
+    for (int i = 0; i < bricks.length; i++) {
+      brick = bricks[i];
 
-    if (isCollidingWithLeftSideOfBrick() || isCollidingWithRightSideOfBrick()) {
-      ball.changeXDir();
-      brick.destroy();
+      if (isCollidingOnTopOfBrick() || isCollidingWithBottomOfBrick()) {
+        ball.changeYDir();
+        brick.destroy();
+      }
+
+      if (isCollidingWithLeftSideOfBrick() || isCollidingWithRightSideOfBrick()) {
+        ball.changeXDir();
+        brick.destroy();
+      }
     }
   }
 
