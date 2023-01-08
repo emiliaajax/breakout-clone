@@ -52,7 +52,7 @@ public class Game {
       ball.changeYDir();
     }
 
-    if (isCollidingWithLeftSideOfBrick() || (ball.getXPos() == brick.getXPos() + brick.getWidth() && isWithinBrickHeight())) {
+    if (isCollidingWithLeftSideOfBrick() || isCollidingWithRightSideOfBrick()) {
       ball.changeXDir();
     }
   }
@@ -67,6 +67,10 @@ public class Game {
 
   private boolean isCollidingWithLeftSideOfBrick() {
     return isOnBrickLeftXPosition() && isWithinBrickHeight();
+  }
+
+  private boolean isCollidingWithRightSideOfBrick() {
+    return isOnBrickRightXPosition() && isWithinBrickHeight();
   }
 
   private boolean isWithinBrickWidth() {
@@ -87,5 +91,9 @@ public class Game {
 
   private boolean isOnBrickLeftXPosition() {
     return ball.getXPos() + ball.getWidth() == brick.getXPos();
+  }
+
+  private boolean isOnBrickRightXPosition() {
+    return ball.getXPos() == brick.getXPos() + brick.getWidth();
   }
 }
