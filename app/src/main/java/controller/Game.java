@@ -51,6 +51,10 @@ public class Game {
     if (isCollidingOnTopOfBrick()) {
       ball.changeYDir();
     }
+
+    if (ball.getYPos() == brick.getYPos() + brick.getHeight() && ball.getXPos() >= brick.getXPos() && ball.getXPos() <= brick.getXPos() + brick.getWidth()) {
+      ball.changeYDir();
+    }
   }
 
   private boolean isCollidingOnTopOfBrick() {

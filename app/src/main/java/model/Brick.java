@@ -8,7 +8,7 @@ public class Brick {
 	private boolean destroyed;
 
 	public Brick () {
-		width = 80;
+		width = 400;
 		height = 40;
 		xPos = 360;
 		yPos = 100;
