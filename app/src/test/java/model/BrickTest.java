@@ -8,8 +8,8 @@ import org.junit.jupiter.api.BeforeEach;
 public class BrickTest {
   private static final int BRICK_WIDTH = 80;
   private static final int BRICK_HEIGHT = 40;
-  private static final int BRICK_X_POS = 360;
-  private static final int BRICK_Y_POS = 100;
+  private static final int BRICK_X_POS = 0;
+  private static final int BRICK_Y_POS = 0;
   private Brick sut;
 
   @BeforeEach void setUp() {
