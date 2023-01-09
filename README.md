@@ -1,4 +1,4 @@
-# Assignment 1 part 2 TDD
+# Assignment 1 part 2 TDD - Breakout
 
-You can use this repository as you wish for assignment 1 part 2
+![A preview of the Breakout game](./images/breakout.gif)
 
