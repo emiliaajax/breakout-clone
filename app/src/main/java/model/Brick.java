@@ -10,8 +10,8 @@ public class Brick {
 	public Brick () {
 		width = 80;
 		height = 40;
-		xPos = 360;
-		yPos = 100;
+		xPos = 0;
+		yPos = 0;
 
 		destroyed = false;
 	}
