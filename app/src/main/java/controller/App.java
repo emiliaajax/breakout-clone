@@ -20,7 +20,7 @@ import view.PaddleView;
 
 public class App {
   public static void main(String[] args) {
-    final int NO_OF_BRICKS = 16;
+    final int NO_OF_BRICKS = 50;
 
     JFrame frame = new JFrame();
     Timer timer = new Timer();
