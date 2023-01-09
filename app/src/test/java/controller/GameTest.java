@@ -119,6 +119,8 @@ public class GameTest {
 		verify(mockBall, times(4)).getXPos();
 		verify(mockBrick, times(2)).getWidth();
 
+		verify(mockBrick).isDestroyed();
+
 		verify(mockBall).changeYDir();
 		verify(mockBrick).destroy();
 	}
@@ -141,6 +143,8 @@ public class GameTest {
 		verify(mockBrick, times(4)).getXPos();
 		verify(mockBall, times(4)).getXPos();
 		verify(mockBrick, times(2)).getWidth();
+
+		verify(mockBrick).isDestroyed();
 
 		verify(mockBall).changeYDir();
 		verify(mockBrick).destroy();
@@ -165,6 +169,8 @@ public class GameTest {
 		verify(mockBall, times(5)).getYPos();
 		verify(mockBrick, times(2)).getHeight();
 
+		verify(mockBrick).isDestroyed();
+
 		verify(mockBall).changeXDir();
 		verify(mockBrick).destroy();
 	}
@@ -187,6 +193,8 @@ public class GameTest {
 		verify(mockBrick, times(4)).getYPos();
 		verify(mockBall, times(5)).getYPos();
 		verify(mockBrick, times(2)).getHeight();
+
+		verify(mockBrick).isDestroyed();
 
 		verify(mockBall).changeXDir();
 		verify(mockBrick).destroy();
