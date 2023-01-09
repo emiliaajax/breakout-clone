@@ -20,7 +20,9 @@ public class Game {
     this.ball = ball;
     this.bricks = bricks;
     this.paddle = paddle;
+
     this.gameUI = gameUI;
+
     this.timer = timer;
   }
 
