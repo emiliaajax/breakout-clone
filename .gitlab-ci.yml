@@ -32,4 +32,4 @@ coverage:
     reports:
       coverage_report:
         coverage_format: cobertura
-        path: build/cobertura.xml
+        path: app/build/cobertura.xml
