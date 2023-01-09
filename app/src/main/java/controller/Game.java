@@ -51,12 +51,12 @@ public class Game {
     for (int i = 0; i < bricks.length; i++) {
       brick = bricks[i];
 
-      if (isCollidingOnTopOfBrick() || isCollidingWithBottomOfBrick()) {
+      if ((isCollidingOnTopOfBrick() || isCollidingWithBottomOfBrick()) && !brick.isDestroyed()) {
         ball.changeYDir();
         brick.destroy();
       }
 
-      if (isCollidingWithLeftSideOfBrick() || isCollidingWithRightSideOfBrick()) {
+      if ((isCollidingWithLeftSideOfBrick() || isCollidingWithRightSideOfBrick()) && !brick.isDestroyed()) {
         ball.changeXDir();
         brick.destroy();
       }
