@@ -1,6 +1,9 @@
 package controller;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.ArgumentCaptor;
 
 import model.Ball;
@@ -15,16 +18,17 @@ import static org.mockito.Mockito.*;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.stream.Stream;
 
 public class GameTest {
 	private static final int PADDLE_Y_POS = 520;
 	private static final int BALL_HEIGHT = 20;
 	private static final int BALL_WIDTH = 20;
 	private static final int PADDLE_WIDTH = 150;
-	private static final int PADDLE_X_POS_TEST = 200;
+	private static final int PADDLE_X_POS = 200;
 	private static final int BRICK_Y_POS = 100;
 	private static final int BRICK_WIDTH = 80;
-	private static final int BRICK_X_POS_TEST = 360;
+	private static final int BRICK_X_POS = 360;
 	private static final int BRICK_HEIGHT = 40;
 
 	private Ball mockBall;
@@ -83,8 +87,8 @@ public class GameTest {
 		when(mockBrick.getHeight()).thenReturn(BRICK_HEIGHT);
 
 		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
-		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
-		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST + BRICK_WIDTH / 2);
+		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS);
+		when(mockBall.getXPos()).thenReturn(BRICK_X_POS + BRICK_WIDTH / 2);
 
 		when(mockBrick.isDestroyed()).thenReturn(true);
 		
@@ -99,8 +103,8 @@ public class GameTest {
 		when(mockPaddle.getYPos()).thenReturn(PADDLE_Y_POS);
 		when(mockBall.getHeight()).thenReturn(BALL_HEIGHT);
 
-		when(mockBall.getXPos()).thenReturn(PADDLE_X_POS_TEST + PADDLE_WIDTH / 2);
-		when(mockPaddle.getXPos()).thenReturn(PADDLE_X_POS_TEST);
+		when(mockBall.getXPos()).thenReturn(PADDLE_X_POS + PADDLE_WIDTH / 2);
+		when(mockPaddle.getXPos()).thenReturn(PADDLE_X_POS);
 		when(mockPaddle.getWidth()).thenReturn(PADDLE_WIDTH);
 
 		sut.checkCollision();
@@ -113,8 +117,8 @@ public class GameTest {
 		when(mockPaddle.getYPos()).thenReturn(PADDLE_Y_POS);
 		when(mockBall.getHeight()).thenReturn(BALL_HEIGHT);
 
-		when(mockBall.getXPos()).thenReturn(PADDLE_X_POS_TEST + PADDLE_WIDTH * 2);
-		when(mockPaddle.getXPos()).thenReturn(PADDLE_X_POS_TEST);
+		when(mockBall.getXPos()).thenReturn(PADDLE_X_POS + PADDLE_WIDTH * 2);
+		when(mockPaddle.getXPos()).thenReturn(PADDLE_X_POS);
 		when(mockPaddle.getWidth()).thenReturn(PADDLE_WIDTH);
 
 		sut.checkCollision();
@@ -127,8 +131,8 @@ public class GameTest {
 		when(mockPaddle.getYPos()).thenReturn(PADDLE_Y_POS);
 		when(mockBall.getHeight()).thenReturn(BALL_HEIGHT);
 
-		when(mockBall.getXPos()).thenReturn(PADDLE_X_POS_TEST - PADDLE_WIDTH * 2);
-		when(mockPaddle.getXPos()).thenReturn(PADDLE_X_POS_TEST);
+		when(mockBall.getXPos()).thenReturn(PADDLE_X_POS - PADDLE_WIDTH * 2);
+		when(mockPaddle.getXPos()).thenReturn(PADDLE_X_POS);
 		when(mockPaddle.getWidth()).thenReturn(PADDLE_WIDTH);
 
 		sut.checkCollision();
@@ -143,8 +147,8 @@ public class GameTest {
 		when(mockBall.getHeight()).thenReturn(BALL_HEIGHT);
 
 		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
-		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
-		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST + BRICK_WIDTH / 2);
+		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS);
+		when(mockBall.getXPos()).thenReturn(BRICK_X_POS + BRICK_WIDTH / 2);
 
 		when(mockBrick.isDestroyed()).thenReturn(false);
 		
@@ -160,8 +164,8 @@ public class GameTest {
 		when(mockBrick.getHeight()).thenReturn(BRICK_HEIGHT);
 
 		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
-		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
-		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST + BRICK_WIDTH / 2);
+		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS);
+		when(mockBall.getXPos()).thenReturn(BRICK_X_POS + BRICK_WIDTH / 2);
 
 		when(mockBrick.isDestroyed()).thenReturn(false);
 		
@@ -172,8 +176,8 @@ public class GameTest {
 	}
 
 	@Test void ballShouldBounceWhenCollidingWithBrick_onLeftSideOfBrick() {
-		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST - BALL_WIDTH);
-		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
+		when(mockBall.getXPos()).thenReturn(BRICK_X_POS - BALL_WIDTH);
+		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS);
 		when(mockBall.getWidth()).thenReturn(BALL_WIDTH);
 
 		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
@@ -189,8 +193,8 @@ public class GameTest {
 	}
 
 	@Test void ballShouldBounceWhenCollidingWithBrick_onRightSideOfBrick() {
-		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST + BRICK_WIDTH);
-		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
+		when(mockBall.getXPos()).thenReturn(BRICK_X_POS + BRICK_WIDTH);
+		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS);
 		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
 
 		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
@@ -205,14 +209,16 @@ public class GameTest {
 		verify(mockBrick).destroy();
 	}
 
-	@Test void ballShouldNotBounceWhenMissingABrick_passingByBesideBrick_right() {
-		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS + BRICK_HEIGHT);
-		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
-		when(mockBrick.getHeight()).thenReturn(BRICK_HEIGHT);
-
+	@ParameterizedTest
+	@MethodSource("ballXAndYPositions")
+	void ballShouldNotBounceWhenMissingABrick_passingByBesideBrick(int ballXPos, int ballYPos) {
 		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
-		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
-		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST + BRICK_WIDTH * 2);
+		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS);
+		when(mockBall.getXPos()).thenReturn(ballXPos);
+
+		when(mockBrick.getHeight()).thenReturn(BRICK_HEIGHT);
+		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
+		when(mockBall.getYPos()).thenReturn(ballYPos);
 
 		when(mockBrick.isDestroyed()).thenReturn(false);
 
@@ -222,48 +228,23 @@ public class GameTest {
 		verify(mockBrick, never()).destroy();
 	}
 
-	@Test void ballShouldNotBounceWhenMissingABrick_passingByBesideBrick_left() {
-		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS + BRICK_HEIGHT);
+	private static Stream<Arguments> ballXAndYPositions() {
+		return Stream.of(
+			Arguments.of(BRICK_X_POS + BRICK_WIDTH * 2, BRICK_Y_POS),
+			Arguments.of(BRICK_X_POS - BRICK_WIDTH * 2, BRICK_Y_POS + BRICK_HEIGHT)
+		);
+	}
+	
+	@ParameterizedTest
+	@MethodSource("ballYPositions")
+	void ballShouldNotBounceWhenMissingABrick_passingByAboveOrBelowBrick(int ballYPos) {
+		when(mockBall.getYPos()).thenReturn(ballYPos);
 		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
 		when(mockBrick.getHeight()).thenReturn(BRICK_HEIGHT);
 
-		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
-		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
-		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST - BRICK_WIDTH * 2);
-
-		when(mockBrick.isDestroyed()).thenReturn(false);
-
-		sut.checkCollision();
-
-		verify(mockBall, never()).changeXDir();
-		verify(mockBrick, never()).destroy();
-	}
-
-	@Test void ballShouldNotBounceWhenMissingABrick_passingByAboveBrick() {
-		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST - BALL_WIDTH);
-		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
+		when(mockBall.getXPos()).thenReturn(BRICK_X_POS - BALL_WIDTH);
+		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS);
 		when(mockBall.getWidth()).thenReturn(BALL_WIDTH);
-
-		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
-		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS - BRICK_HEIGHT * 2);
-		when(mockBrick.getHeight()).thenReturn(BRICK_HEIGHT);
-
-		when(mockBrick.isDestroyed()).thenReturn(false);
-
-		sut.checkCollision();
-
-		verify(mockBall, never()).changeXDir();
-		verify(mockBrick, never()).destroy();
-	}
-
-	@Test void ballShouldNotBounceWhenMissingABrick_passingByBelowBrick() {
-		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS - BALL_HEIGHT);
-		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
-		when(mockBall.getHeight()).thenReturn(BALL_HEIGHT);
-
-		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
-		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
-		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST + BRICK_WIDTH * 2);
 
 		when(mockBrick.isDestroyed()).thenReturn(false);
 		
@@ -272,5 +253,11 @@ public class GameTest {
 		verify(mockBall, never()).changeYDir();
 		verify(mockBrick, never()).destroy();
 	}
-	
+
+	private static Stream<Arguments> ballYPositions() {
+		return Stream.of(
+			Arguments.of(BRICK_Y_POS - BRICK_HEIGHT * 2),
+			Arguments.of(BRICK_Y_POS + BRICK_HEIGHT * 2)
+		);
+	}
 }
