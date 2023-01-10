@@ -55,20 +55,25 @@ public class Game {
     for (int i = 0; i < bricks.length; i++) {
       brick = bricks[i];
 
-      if ((isCollidingOnTopOfBrick() || isCollidingWithBottomOfBrick()) && !brick.isDestroyed()) {
-        ball.changeYDir();
-        brick.destroy();
-      }
+      if (!brick.isDestroyed()) {
+        if (isCollidingOnTopOfBrick() 
+          || isCollidingWithBottomOfBrick()) {
+          ball.changeYDir();
+          brick.destroy();
+        }
 
-      if ((isCollidingWithLeftSideOfBrick() || isCollidingWithRightSideOfBrick()) && !brick.isDestroyed()) {
-        ball.changeXDir();
-        brick.destroy();
+        if (isCollidingWithLeftSideOfBrick() 
+          || isCollidingWithRightSideOfBrick()) {
+          ball.changeXDir();
+          brick.destroy();
+        }
       }
     }
   }
 
   private boolean isCollidingOnTopOfBrick() {
-    return isOnBrickTopYPosition() && isWithinBrickWidth();
+    return isOnBrickTopYPosition() 
+      && isWithinBrickWidth();
   }
 
   private boolean isCollidingWithBottomOfBrick() {
@@ -84,7 +89,8 @@ public class Game {
   }
 
   private boolean isWithinBrickWidth() {
-    return ball.getXPos() >= brick.getXPos() && ball.getXPos() <= brick.getXPos() + brick.getWidth();
+    return ball.getXPos() >= brick.getXPos() 
+      && ball.getXPos() <= brick.getXPos() + brick.getWidth();
   }
 
   private boolean isOnBrickTopYPosition() {

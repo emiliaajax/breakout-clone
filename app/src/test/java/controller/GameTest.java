@@ -92,6 +92,34 @@ public class GameTest {
 		verify(mockBall).changeYDir();
 	}
 
+	@Test void checkCollision_betweenBallAndPaddle_didNotCollideThePaddleOnRightSideOfPaddle() {
+		when(mockBall.getYPos()).thenReturn(PADDLE_Y_POS - BALL_HEIGHT);
+		when(mockPaddle.getYPos()).thenReturn(PADDLE_Y_POS);
+		when(mockBall.getHeight()).thenReturn(BALL_HEIGHT);
+
+		when(mockBall.getXPos()).thenReturn(PADDLE_X_POS_TEST + PADDLE_WIDTH * 2);
+		when(mockPaddle.getXPos()).thenReturn(PADDLE_X_POS_TEST);
+		when(mockPaddle.getWidth()).thenReturn(PADDLE_WIDTH);
+
+		sut.checkCollision();
+
+		verify(mockBall, never()).changeYDir();
+	}
+
+	@Test void checkCollision_betweenBallAndPaddle_didNotCollideThePaddleOnLeftSideOfPaddle() {
+		when(mockBall.getYPos()).thenReturn(PADDLE_Y_POS - BALL_HEIGHT);
+		when(mockPaddle.getYPos()).thenReturn(PADDLE_Y_POS);
+		when(mockBall.getHeight()).thenReturn(BALL_HEIGHT);
+
+		when(mockBall.getXPos()).thenReturn(PADDLE_X_POS_TEST - PADDLE_WIDTH * 2);
+		when(mockPaddle.getXPos()).thenReturn(PADDLE_X_POS_TEST);
+		when(mockPaddle.getWidth()).thenReturn(PADDLE_WIDTH);
+
+		sut.checkCollision();
+
+		verify(mockBall, never()).changeYDir();
+	}
+
 
 	@Test void checkCollision_betweenBallAndBrick_fromTop() {
 		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS - BALL_HEIGHT);
@@ -101,6 +129,8 @@ public class GameTest {
 		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
 		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
 		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST + BRICK_WIDTH / 2);
+
+		when(mockBrick.isDestroyed()).thenReturn(false);
 		
 		sut.checkCollision();
 
@@ -116,11 +146,30 @@ public class GameTest {
 		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
 		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
 		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST + BRICK_WIDTH / 2);
+
+		when(mockBrick.isDestroyed()).thenReturn(false);
 		
 		sut.checkCollision();
 
 		verify(mockBall).changeYDir();
 		verify(mockBrick).destroy();
+	}
+
+	@Test void checkCollision_betweenBallAndBrick_brickAlreadyDestroyed() {
+		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS + BRICK_HEIGHT);
+		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
+		when(mockBrick.getHeight()).thenReturn(BRICK_HEIGHT);
+
+		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
+		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
+		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST + BRICK_WIDTH / 2);
+
+		when(mockBrick.isDestroyed()).thenReturn(true);
+		
+		sut.checkCollision();
+
+		verify(mockBall, never()).changeYDir();
+		verify(mockBrick, never()).destroy();
 	}
 
 	@Test void checkCollision_betweenBallAndBrick_onLeftSideOfBrick() {
@@ -131,6 +180,8 @@ public class GameTest {
 		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
 		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS + BRICK_HEIGHT / 2);
 		when(mockBrick.getHeight()).thenReturn(BRICK_HEIGHT);
+
+		when(mockBrick.isDestroyed()).thenReturn(false);
 
 		sut.checkCollision();
 
@@ -147,9 +198,80 @@ public class GameTest {
 		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS + BRICK_HEIGHT / 2);
 		when(mockBrick.getHeight()).thenReturn(BRICK_HEIGHT);
 
+		when(mockBrick.isDestroyed()).thenReturn(false);
+
 		sut.checkCollision();
 
 		verify(mockBall).changeXDir();
 		verify(mockBrick).destroy();
 	}
+
+	@Test void checkCollision_betweenBallAndBrick_positionIsGreaterThanBrick() {
+		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS + BRICK_HEIGHT);
+		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
+		when(mockBrick.getHeight()).thenReturn(BRICK_HEIGHT);
+
+		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
+		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
+		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST + BRICK_WIDTH * 2);
+
+		when(mockBrick.isDestroyed()).thenReturn(false);
+
+		sut.checkCollision();
+
+		verify(mockBall, never()).changeXDir();
+		verify(mockBrick, never()).destroy();
+	}
+
+	@Test void checkCollision_betweenBallAndBrick_positionIsLesserThanBrick() {
+		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS + BRICK_HEIGHT);
+		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
+		when(mockBrick.getHeight()).thenReturn(BRICK_HEIGHT);
+
+		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
+		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
+		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST - BRICK_WIDTH * 2);
+
+		when(mockBrick.isDestroyed()).thenReturn(false);
+
+		sut.checkCollision();
+
+		verify(mockBall, never()).changeXDir();
+		verify(mockBrick, never()).destroy();
+	}
+
+	@Test void checkCollision_betweenBallAndBrick_positionIsAboveBrick() {
+		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST - BALL_WIDTH);
+		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
+		when(mockBall.getWidth()).thenReturn(BALL_WIDTH);
+
+		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
+		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS - BRICK_HEIGHT * 2);
+		when(mockBrick.getHeight()).thenReturn(BRICK_HEIGHT);
+
+		when(mockBrick.isDestroyed()).thenReturn(false);
+
+		sut.checkCollision();
+
+		verify(mockBall, never()).changeXDir();
+		verify(mockBrick, never()).destroy();
+	}
+
+	@Test void checkCollision_betweenBallAndBrick_ballMissesTheTopOfBrick() {
+		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS - BALL_HEIGHT);
+		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
+		when(mockBall.getHeight()).thenReturn(BALL_HEIGHT);
+
+		when(mockBrick.getWidth()).thenReturn(BRICK_WIDTH);
+		when(mockBrick.getXPos()).thenReturn(BRICK_X_POS_TEST);
+		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST + BRICK_WIDTH * 2);
+
+		when(mockBrick.isDestroyed()).thenReturn(false);
+		
+		sut.checkCollision();
+
+		verify(mockBall, never()).changeYDir();
+		verify(mockBrick, never()).destroy();
+	}
+	
 }
