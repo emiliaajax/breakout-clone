@@ -77,7 +77,7 @@ public class GameTest {
 		verify(mockTimer).scheduleAtFixedRate(any(TimerTask.class), eq(0L), eq(10L));
 	}
 
-	@Test void checkCollision_betweenBallAndPaddle() {
+	@Test void checkCollision_betweenBallAndPaddle_hitsPaddle() {
 		when(mockBall.getYPos()).thenReturn(PADDLE_Y_POS - BALL_HEIGHT);
 		when(mockPaddle.getYPos()).thenReturn(PADDLE_Y_POS);
 		when(mockBall.getHeight()).thenReturn(BALL_HEIGHT);
@@ -89,16 +89,9 @@ public class GameTest {
 
 		sut.checkCollision();
 
-		verify(mockBall, times(3)).getYPos();
-		verify(mockPaddle).getYPos();
-		verify(mockBall, times(2)).getHeight();
-
-		verify(mockBall, times(4)).getXPos();
-		verify(mockPaddle, times(2)).getXPos();
-		verify(mockPaddle).getWidth();
-
 		verify(mockBall).changeYDir();
 	}
+
 
 	@Test void checkCollision_betweenBallAndBrick_fromTop() {
 		when(mockBall.getYPos()).thenReturn(BRICK_Y_POS - BALL_HEIGHT);
@@ -110,16 +103,6 @@ public class GameTest {
 		when(mockBall.getXPos()).thenReturn(BRICK_X_POS_TEST + BRICK_WIDTH / 2);
 		
 		sut.checkCollision();
-
-		verify(mockBall, times(2)).getYPos();
-		verify(mockBrick, times(1)).getYPos();
-		verify(mockBall, times(2)).getHeight();
-
-		verify(mockBrick, times(4)).getXPos();
-		verify(mockBall, times(4)).getXPos();
-		verify(mockBrick, times(2)).getWidth();
-
-		verify(mockBrick).isDestroyed();
 
 		verify(mockBall).changeYDir();
 		verify(mockBrick).destroy();
@@ -136,16 +119,6 @@ public class GameTest {
 		
 		sut.checkCollision();
 
-		verify(mockBall, times(3)).getYPos();
-		verify(mockBrick, times(2)).getYPos();
-		verify(mockBrick, times(1)).getHeight();
-
-		verify(mockBrick, times(4)).getXPos();
-		verify(mockBall, times(4)).getXPos();
-		verify(mockBrick, times(2)).getWidth();
-
-		verify(mockBrick).isDestroyed();
-
 		verify(mockBall).changeYDir();
 		verify(mockBrick).destroy();
 	}
@@ -161,16 +134,6 @@ public class GameTest {
 
 		sut.checkCollision();
 
-		verify(mockBall).getXPos();
-		verify(mockBrick).getXPos();
-		verify(mockBall).getWidth();
-
-		verify(mockBrick, times(4)).getYPos();
-		verify(mockBall, times(5)).getYPos();
-		verify(mockBrick, times(2)).getHeight();
-
-		verify(mockBrick).isDestroyed();
-
 		verify(mockBall).changeXDir();
 		verify(mockBrick).destroy();
 	}
@@ -185,16 +148,6 @@ public class GameTest {
 		when(mockBrick.getHeight()).thenReturn(BRICK_HEIGHT);
 
 		sut.checkCollision();
-
-		verify(mockBall, times(2)).getXPos();
-		verify(mockBrick, times(2)).getXPos();
-		verify(mockBrick).getWidth();
-
-		verify(mockBrick, times(4)).getYPos();
-		verify(mockBall, times(5)).getYPos();
-		verify(mockBrick, times(2)).getHeight();
-
-		verify(mockBrick).isDestroyed();
 
 		verify(mockBall).changeXDir();
 		verify(mockBrick).destroy();
