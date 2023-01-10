@@ -72,8 +72,7 @@ public class Game {
   }
 
   private boolean isCollidingOnTopOfBrick() {
-    return isOnBrickTopYPosition() 
-      && isWithinBrickWidth();
+    return isOnBrickTopYPosition() && isWithinBrickWidth();
   }
 
   private boolean isCollidingWithBottomOfBrick() {
@@ -89,8 +88,7 @@ public class Game {
   }
 
   private boolean isWithinBrickWidth() {
-    return ball.getXPos() >= brick.getXPos() 
-      && ball.getXPos() <= brick.getXPos() + brick.getWidth();
+    return ball.getXPos() >= brick.getXPos() && ball.getXPos() <= brick.getXPos() + brick.getWidth();
   }
 
   private boolean isOnBrickTopYPosition() {
