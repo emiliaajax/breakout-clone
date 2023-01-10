@@ -1,8 +1,8 @@
 # Coverage Report 1
 
-![1](./images/1.png)
-![2](./images/2.png)
-![3](./images/3.png)
-![4](./images/4.png)
-![5](./images/5.png)
-![6](./images/6.png)
+![1](./images/report1-total.png)
+![2](./images/report1-controller.png)
+![3](./images/report1-app.png)
+![4](./images/report1-game.png)
+![5](./images/report1-model.png)
+![6](./images/report1-paddle.png)
