@@ -236,7 +236,7 @@ public class GameTest {
 	}
 	
 	@ParameterizedTest
-	@MethodSource("ballYPositions")
+	@MethodSource("ballPositionsWhenMissingBrickSides")
 	void ballShouldNotBounceWhenMissingABrick_passingByAboveOrBelowBrick(int ballYPos) {
 		when(mockBall.getYPos()).thenReturn(ballYPos);
 		when(mockBrick.getYPos()).thenReturn(BRICK_Y_POS);
@@ -254,7 +254,7 @@ public class GameTest {
 		verify(mockBrick, never()).destroy();
 	}
 
-	private static Stream<Arguments> ballYPositions() {
+	private static Stream<Arguments> ballPositionsWhenMissingBrickSides() {
 		return Stream.of(
 			Arguments.of(BRICK_Y_POS - BRICK_HEIGHT * 2),
 			Arguments.of(BRICK_Y_POS + BRICK_HEIGHT * 2)
